@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CusomCellWithXib" customModule="MDTableExample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="gaP-QT-lM0">
+                        <rect key="frame" x="8" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="84o-13-74i"/>
+                            <constraint firstAttribute="width" constant="50" id="Eh4-4s-0Hk"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a title label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkI-xr-vI6">
+                        <rect key="frame" x="66" y="10" width="246" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNS-qk-Gpg">
+                        <rect key="frame" x="66" y="43" width="254" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="QNS-qk-Gpg" secondAttribute="trailing" id="0gG-W5-DHY"/>
+                    <constraint firstItem="QNS-qk-Gpg" firstAttribute="bottom" secondItem="gaP-QT-lM0" secondAttribute="bottom" id="7JS-jd-kf7"/>
+                    <constraint firstItem="bkI-xr-vI6" firstAttribute="top" secondItem="gaP-QT-lM0" secondAttribute="top" id="8HH-Ne-IR8"/>
+                    <constraint firstAttribute="trailing" secondItem="bkI-xr-vI6" secondAttribute="trailing" constant="8" id="VR6-ES-CBU"/>
+                    <constraint firstItem="bkI-xr-vI6" firstAttribute="leading" secondItem="gaP-QT-lM0" secondAttribute="trailing" constant="8" id="Y46-Zx-eOc"/>
+                    <constraint firstItem="QNS-qk-Gpg" firstAttribute="leading" secondItem="gaP-QT-lM0" secondAttribute="trailing" constant="8" id="jfW-K0-3AW"/>
+                    <constraint firstItem="gaP-QT-lM0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jfl-0M-IYW"/>
+                    <constraint firstItem="gaP-QT-lM0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pny-a5-mT2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avaterImageView" destination="gaP-QT-lM0" id="IiX-no-ioD"/>
+                <outlet property="customSubTitleLabel" destination="QNS-qk-Gpg" id="Ix7-xs-yc9"/>
+                <outlet property="customTitleLabel" destination="bkI-xr-vI6" id="s3g-sJ-L4A"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="avatar" width="100" height="100"/>
+    </resources>
+</document>
