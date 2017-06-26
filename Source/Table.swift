@@ -50,11 +50,6 @@ extension SystemRow{
         self._didSelect = action
         return self
     }
-    @discardableResult
-    public func onAccessoryButtonTapped(_ action:@escaping (_ tableView:UITableView,_ indexPath:IndexPath)->Void)->SystemRow{
-        self._didSelect = action
-        return self
-    }
 }
 
 extension SystemRow:TableRow{

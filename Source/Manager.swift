@@ -30,6 +30,7 @@ public class TableManager{
         reloadSectionIndexTitles()
     }
     func reloadSectionIndexTitles(){
+        lock.lock(); defer{lock.unlock()}
         sectionIndexTitles =  []
         sectionIndexMap =  [:]
         for (index, section) in self.sections.enumerated(){
@@ -45,6 +46,7 @@ public class TableManager{
         tableView.dataSource = self.delegate
     }
     func row(at indexPath:IndexPath) -> TableRow{
+        lock.lock(); defer{lock.unlock()}
         guard let row = self[indexPath] else {
             fatalError("In this method you have to make sure indexPath is valid")
         }
@@ -52,9 +54,10 @@ public class TableManager{
     }
     public func reloadData(){
         assert(tableView != nil, "You have to bind a tableView first")
-        reloadSectionIndexTitles()
-        tableView?.reloadData()
-        
+        DispatchQueue.main.async {
+            self.reloadSectionIndexTitles()
+            self.tableView?.reloadData()
+        }
     }
     open subscript(indexPath:IndexPath) -> TableRow?{
         get{
