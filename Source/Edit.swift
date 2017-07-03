@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol EditableRow {
+public protocol EdiRowConvertable {
     var titleForDeleteConfirmationButton:String? {get}
     var editingStyle:UITableViewCellEditingStyle {get}
     var canMove:Bool{ get }
@@ -19,7 +19,7 @@ public protocol EditableRow {
     var editActionsForRowAt:(UITableView, IndexPath)->[UITableViewRowAction]? {get}
 }
 
-extension EditableRow{
+extension EdiRowConvertable{
     public var shouldIndentWhileEditing:Bool {return true}
     public var canEdit:Bool { return true}
     public var canMove:Bool{ return false }
@@ -57,6 +57,7 @@ extension TableEditor{
     }
 }
 
+
 public protocol TableMenuManager{
     
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool
@@ -73,4 +74,17 @@ public protocol TableFocusManager{
     @available(iOS 9.0, *)
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
     func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
+}
+
+open class SystemTableEditor:TableEditor{
+    public var editingStyleCommitForRowAt: (UITableView, UITableViewCellEditingStyle, IndexPath) -> Void
+    public var willBeginEditingRowAt:(UITableView, IndexPath) -> Void
+    public var didEndEditingRowAt:(UITableView, IndexPath?) -> Void
+    public var moveRowAtSourceIndexPathToDestinationIndexPath:(UITableView, IndexPath, IndexPath)->Void
+    public init(){
+        editingStyleCommitForRowAt = { (_,_,_) in}
+        moveRowAtSourceIndexPathToDestinationIndexPath = { (_,_,_) in}
+        willBeginEditingRowAt = {(_,_) in}
+        didEndEditingRowAt = {(_,_) in}
+    }
 }

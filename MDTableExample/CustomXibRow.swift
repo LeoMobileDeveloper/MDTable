@@ -1,5 +1,5 @@
 //
-//  CustomXibRow.swift
+//  XibRow.swift
 //  MDTableExample
 //
 //  Created by Leo on 2017/6/15.
@@ -9,11 +9,11 @@
 import Foundation
 import MDTable
 
-class CustomXibRow: TableRow{
+class XibRow: RowConvertable{
     //Protocol
     var rowHeight: CGFloat = 80.0
-    var reuseIdentifier: String = "CustomXibRow"
-    var initalType: TableRowInitalType = TableRowInitalType.xib(xibName: "CusomCellWithXib")
+    var reuseIdentifier: String = "XibRow"
+    var initalType: RowConvertableInitalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib")
     
     var didSelectRowAt: (UITableView, IndexPath) -> Void
     

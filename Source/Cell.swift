@@ -10,9 +10,9 @@ import UIKit
 
 
 open class SystemTableViewCell:UITableViewCell{
-    public typealias MDRowDataType = SystemRow
-    open func render(with row: TableRow) {
-        if let row = row as? SystemRow{
+    public typealias MDRowDataType = Row
+    open func render(with row: RowConvertable) {
+        if let row = row as? Row{
             self.textLabel?.text = row.title
             self.imageView?.image = row.image
             self.detailTextLabel?.text = row.detailTitle

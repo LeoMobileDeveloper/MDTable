@@ -8,15 +8,15 @@
 
 import UIKit
 
-struct TableSectionConst{
+struct SectionConvertableConst{
     static let defaultHeightForHeader:CGFloat = 0.0
     static let defaultEstimatedHeightForHeader:CGFloat = 30.0
     static let defaultHeightForFooter:CGFloat = 0.0
     static let defaultEstimatedHeightForFooter:CGFloat = 30.0
 }
 
-public protocol TableSection {
-    var rows:[TableRow] {get set}
+public protocol SectionConvertable {
+    var rows:[RowConvertable] {get set}
     
     //These are optional
     var titleForHeader: String? {get}
@@ -38,7 +38,7 @@ public protocol TableSection {
 
 // MARK: - Header
 
-extension TableSection{
+extension SectionConvertable{
     public var titleForHeader: String? {
         return nil
     }
@@ -46,10 +46,10 @@ extension TableSection{
         return nil
     }
     public var heightForHeader: CGFloat{
-        return TableSectionConst.defaultHeightForHeader
+        return SectionConvertableConst.defaultHeightForHeader
     }
     public var estimatedHeightForHeader: CGFloat{
-        return TableSectionConst.defaultEstimatedHeightForHeader
+        return SectionConvertableConst.defaultEstimatedHeightForHeader
     }
     public var willDisplayHeaderView:(UITableView,UIView,Int)->Void{
         return {_,_,_ in}
@@ -62,7 +62,7 @@ extension TableSection{
 
 // MARK: - Footer
 
-extension TableSection{
+extension SectionConvertable{
     public var titleForFooter: String? {
         return nil
     }
@@ -70,10 +70,10 @@ extension TableSection{
         return nil
     }
     public var heightForFooter: CGFloat{
-        return TableSectionConst.defaultHeightForFooter
+        return SectionConvertableConst.defaultHeightForFooter
     }
     public var estimatedHeightForFooter: CGFloat{
-        return TableSectionConst.defaultEstimatedHeightForFooter
+        return SectionConvertableConst.defaultEstimatedHeightForFooter
     }
     public var willDisplayFooterView:(UITableView,UIView,Int)->Void{
         return {_,_,_ in}
@@ -84,7 +84,7 @@ extension TableSection{
     
 }
 
-extension TableSection{
+extension SectionConvertable{
     public var sectionIndexTitle:String?{
         return nil
     }

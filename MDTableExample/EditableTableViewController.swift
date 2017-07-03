@@ -9,7 +9,7 @@
 import UIKit
 import MDTable
 
-class SwipteToDeleteRow: SystemRow, EditableRow{
+class SwipteToDeleteRow: Row, EdiRowConvertable{
     var titleForDeleteConfirmationButton: String? = "Delete"
     var editingStyle:UITableViewCellEditingStyle = UITableViewCellEditingStyle.delete
 }
@@ -27,18 +27,17 @@ class SwipteToDeleteController: UITableViewController {
             let row = SwipteToDeleteRow(title: "\(index)")
             return row
         }
-        let section = SystemSection(rows: rows)
+        let section = Section(rows: rows)
         section.heightForHeader = 30.0
         section.titleForHeader = "Swipe to Delete"
         let tableEditor = SystemTableEditor()
-        tableEditor.editingStyleCommitForRowAt = {  [unowned self] (tableView, style, indexPath) in
+        tableEditor.editingStyleCommitForRowAt = { (tableView, style, indexPath) in
             if style == .delete{
-                self.tableManager.delete(row: indexPath)
+                tableView.manager?.delete(row: indexPath)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
-        tableManager = TableManager(sections: [section],editor:tableEditor)
-        tableView.md_bindTo(manager: tableManager)
+        tableView.manager = TableManager(sections: [section],editor:tableEditor)
     }
     
     @objc func handleEditing(_ sender:UIBarButtonItem){

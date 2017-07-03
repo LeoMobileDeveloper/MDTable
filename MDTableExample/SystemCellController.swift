@@ -9,7 +9,7 @@
 import UIKit
 import MDTable
 
-class SystemCellUsageController: UIViewController {
+class SystemCellController: UIViewController {
     var tableManager:TableManager!
     var customSwitchValue = true
     override func viewDidLoad() {
@@ -19,15 +19,14 @@ class SystemCellUsageController: UIViewController {
         view.addSubview(tableView)
         
         let section0 = buildSection0()
-        tableManager = TableManager(sections: [section0])
-        tableView.md_bindTo(manager: tableManager)
+        tableView.manager = TableManager(sections: [section0])
     }
     
-    func buildSection0()->SystemSection{
+    func buildSection0()->Section{
         
-        let row0 = SystemRow(title: "Basic", rowHeight: 40.0, accessoryType: .none)
+        let row0 = Row(title: "Basic", rowHeight: 40.0, accessoryType: .none)
         
-        let row1 = SystemRow(title: "Custom Color", rowHeight: 40.0, accessoryType: .detailDisclosureButton)
+        let row1 = Row(title: "Custom Color", rowHeight: 40.0, accessoryType: .detailDisclosureButton)
         row1.onRender { (cell,isInital) in
             cell.textLabel?.textColor = UIColor.orange
             cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
@@ -35,21 +34,21 @@ class SystemCellUsageController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
         
-        let row2 = SystemRow(title: "Title",
+        let row2 = Row(title: "Title",
                              image: UIImage(named: "avatar"),
                              detailTitle: "Detail Title",
                              rowHeight: 60.0,
                              accessoryType: .disclosureIndicator);
         row2.cellStyle = .value1
         
-        let row3 = SystemRow(title: "Title",
+        let row3 = Row(title: "Title",
                              image: UIImage(named: "avatar"),
                              detailTitle: "Sub Title",
                              rowHeight: 60.0,
                              accessoryType: .checkmark);
         row3.cellStyle = .subtitle
         
-        let row4 = SystemRow(title: "Title",
+        let row4 = Row(title: "Title",
                              image: UIImage(named: "avatar"),
                              detailTitle: "Sub Title",
                              rowHeight: 60.0,
@@ -61,7 +60,7 @@ class SystemCellUsageController: UIViewController {
             }
         }
         row4.reuseIdentifier = "Cell With Switch"
-        let section = SystemSection(rows: [row0,row1,row2,row3,row4])
+        let section = Section(rows: [row0,row1,row2,row3,row4])
         section.heightForHeader = 10.0
         section.heightForFooter = 0.0
         return section

@@ -10,16 +10,16 @@ import UIKit
 
 public class TableManager{
     
-    public var sections:[TableSection]
+    public var sections:[SectionConvertable]
     public var editorManager:TableEditor?
     public var menuManager:TableMenuManager?
     public var focusManager:TableFocusManager?
-    public var tableView:UITableView?
+    public weak var tableView:UITableView?
     var delegate:TableDelegate?
     private let lock = NSRecursiveLock()
     var sectionIndexTitles:[String] = []
     var sectionIndexMap:[Int:Int] = [:]//Map index in sectionIndexTitles to section
-    public init(sections:[TableSection],
+    public init(sections:[SectionConvertable],
                 delegate:TableDelegate = TableDelegate(),
                 editor:TableEditor? = nil
         ) {
@@ -45,7 +45,7 @@ public class TableManager{
         tableView.delegate = self.delegate
         tableView.dataSource = self.delegate
     }
-    func row(at indexPath:IndexPath) -> TableRow{
+    func row(at indexPath:IndexPath) -> RowConvertable{
         lock.lock(); defer{lock.unlock()}
         guard let row = self[indexPath] else {
             fatalError("In this method you have to make sure indexPath is valid")
@@ -59,7 +59,7 @@ public class TableManager{
             self.tableView?.reloadData()
         }
     }
-    open subscript(indexPath:IndexPath) -> TableRow?{
+    open subscript(indexPath:IndexPath) -> RowConvertable?{
         get{
             lock.lock();defer{lock.unlock()}
             guard indexPath.section < self.sections.count else{
@@ -104,9 +104,9 @@ public class TableManager{
     
     public func delete(rows at:Set<IndexPath>){
         lock.lock();defer{lock.unlock()}
-        var reducedSections = [TableSection]()
+        var reducedSections = [SectionConvertable]()
         for (sectionIndex,section) in sections.enumerated(){
-            var reducedRows =  [TableRow]()
+            var reducedRows =  [RowConvertable]()
             for (rowIndex,row) in section.rows.enumerated(){
                 let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
                 if !at.contains(indexPath){
@@ -122,7 +122,7 @@ public class TableManager{
         self.sections = reducedSections
     }
     
-    public func insert(row content:TableRow, at indexPath:IndexPath) {
+    public func insert(row content:RowConvertable, at indexPath:IndexPath) {
         lock.lock();defer{lock.unlock()}
         if indexPath.section >= self.sections.count {
             return

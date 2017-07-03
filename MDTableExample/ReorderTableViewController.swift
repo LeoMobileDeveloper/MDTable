@@ -9,7 +9,7 @@
 import UIKit
 import MDTable
 
-class ReorderRow: SystemRow, EditableRow{
+class ReorderRow: Row, EdiRowConvertable{
     var titleForDeleteConfirmationButton: String? = nil
     var editingStyle:UITableViewCellEditingStyle = .none
     var canMove: Bool = true
@@ -28,14 +28,13 @@ class ReorderTableViewController: UITableViewController {
             let row = ReorderRow(title: "\(index)")
             return row
         }
-        let section = SystemSection(rows: rows)
+        let section = Section(rows: rows)
         section.heightForHeader = 0.0
         let tableEditor = SystemTableEditor()
-        tableEditor.moveRowAtSourceIndexPathToDestinationIndexPath = {  [unowned self] (tableview,sourceIndexPath,destinationIndexPath) in
-            self.tableManager.exchange(sourceIndexPath, with: destinationIndexPath)
+        tableEditor.moveRowAtSourceIndexPathToDestinationIndexPath = {(tableView,sourceIndexPath,destinationIndexPath) in
+            tableView.manager?.exchange(sourceIndexPath, with: destinationIndexPath)
         }
-        tableManager = TableManager(sections: [section],editor:tableEditor)
-        tableView.md_bindTo(manager: tableManager)
+        tableView.manager = TableManager(sections: [section],editor:tableEditor)
     }
 }
 

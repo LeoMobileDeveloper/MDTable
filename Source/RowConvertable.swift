@@ -9,15 +9,15 @@
 import UIKit
 
 
-public enum TableRowInitalType{
+public enum RowConvertableInitalType{
     case xib(xibName:String)
     case code(className:UITableViewCell.Type)
 }
 
-public protocol TableRow {
+public protocol RowConvertable {
     var rowHeight: CGFloat {get}
     var reuseIdentifier: String{get}
-    var initalType: TableRowInitalType{get}
+    var initalType: RowConvertableInitalType{get}
     
     //These are optional
     var estimatedHeighAt:(UITableView,IndexPath) -> CGFloat {get}
@@ -36,7 +36,7 @@ public protocol TableRow {
     var didUnhighlightRowAt:(UITableView,IndexPath)->Void {get}
 }
 
-extension TableRow{
+extension RowConvertable{
     public var cellStyle: UITableViewCellStyle {
         return .default
     }
@@ -92,7 +92,7 @@ extension TableRow{
 
 // MARK: - Select
 
-extension TableRow{
+extension RowConvertable{
     public var willSelectedRowAt:(UITableView, IndexPath) -> IndexPath?{
         return { (_, indexPath) in
             return indexPath
@@ -112,7 +112,7 @@ extension TableRow{
 }
 // MARK: - Highlight
 
-extension TableRow{
+extension RowConvertable{
     public var shouldHighlight: Bool {
         return true
     }

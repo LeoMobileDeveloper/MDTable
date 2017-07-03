@@ -14,19 +14,18 @@ class CustomCellWithXibController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Custom cell with XIB"
-        let rows = (1..<100).map { (index) -> CustomXibRow  in
-            let row = CustomXibRow(title: "Title\(index)", subTitle: "Subtitle \(index)", image: UIImage(named: "avatar")!)
-            row.didSelectRowAt = { [unowned self] (tableView, indexPath) in
-                self.tableManager.delete(row: indexPath)
+        let rows = (1..<100).map { (index) -> XibRow  in
+            let row = XibRow(title: "Title\(index)", subTitle: "Subtitle \(index)", image: UIImage(named: "avatar")!)
+            row.didSelectRowAt = {(tableView, indexPath) in
+                tableView.manager?.delete(row: indexPath)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
             return row
         }
-        let section = SystemSection(rows: rows)
+        let section = Section(rows: rows)
         section.heightForHeader = 30.0
         section.titleForHeader = "Tap Row to Delete"
-        tableManager = TableManager(sections: [section])
-        tableView.md_bindTo(manager: tableManager)
+        tableView.manager = TableManager(sections: [section])
     }
 }
 

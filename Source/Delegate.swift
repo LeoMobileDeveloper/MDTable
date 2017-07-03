@@ -133,8 +133,8 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     
     public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.editActionsForRowAt(tableView, indexPath)
+        if let ediRowConvertable = row as? EdiRowConvertable{
+            return ediRowConvertable.editActionsForRowAt(tableView, indexPath)
         }
         return nil
     }
@@ -143,21 +143,21 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     }
     public func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.titleForDeleteConfirmationButton
+        if let ediRowConvertable = row as? EdiRowConvertable{
+            return ediRowConvertable.titleForDeleteConfirmationButton
         }
         return nil
     }
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.canEdit
+        if let ediRowConvertable = row as? EdiRowConvertable{
+            return ediRowConvertable.canEdit
         }
         return false
     }
     public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         let row = tableManager.row(at: indexPath)
-        if let moveableRow = row as? EditableRow{
+        if let moveableRow = row as? EdiRowConvertable{
             return moveableRow.canMove
         }
         return false
@@ -174,15 +174,15 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     }
     public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.editingStyle
+        if let ediRowConvertable = row as? EdiRowConvertable{
+            return ediRowConvertable.editingStyle
         }
         return .none
     }
     public func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.shouldIndentWhileEditing
+        if let ediRowConvertable = row as? EdiRowConvertable{
+            return ediRowConvertable.shouldIndentWhileEditing
         }
         return false
     }

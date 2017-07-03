@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B31F34E41EF27104005FA5E8 /* SystemCellUsageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31F34E31EF27104005FA5E8 /* SystemCellUsageController.swift */; };
+		B31F34E41EF27104005FA5E8 /* SystemCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31F34E31EF27104005FA5E8 /* SystemCellController.swift */; };
 		B31F34EC1EF271CA005FA5E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31F34E81EF27145005FA5E8 /* LaunchScreen.storyboard */; };
 		B31F34ED1EF271CA005FA5E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31F34EA1EF27145005FA5E8 /* Main.storyboard */; };
-		B3376E731EF3B3180003F154 /* CustomCellWithCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E721EF3B3180003F154 /* CustomCellWithCode.swift */; };
-		B3376E751EF3B3950003F154 /* CustomCodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E741EF3B3950003F154 /* CustomCodeRow.swift */; };
-		B3376E771EF3B7800003F154 /* CustomCellWithCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E761EF3B7800003F154 /* CustomCellWithCodeController.swift */; };
+		B3376E731EF3B3180003F154 /* DynamicHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E721EF3B3180003F154 /* DynamicHeightCell.swift */; };
+		B3376E751EF3B3950003F154 /* DynamicHeightRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E741EF3B3950003F154 /* DynamicHeightRow.swift */; };
+		B3376E771EF3B7800003F154 /* DynamicHeightCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E761EF3B7800003F154 /* DynamicHeightCellController.swift */; };
 		B3376E791EF3BD3E0003F154 /* EditableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E781EF3BD3E0003F154 /* EditableTableViewController.swift */; };
 		B3756B301EF2A05900661760 /* avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3756B2F1EF2A05900661760 /* avatar@2x.png */; };
 		B37C55E01EF26ED40069FEB3 /* MDTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37C55D81EF26D160069FEB3 /* MDTable.framework */; };
@@ -22,7 +22,7 @@
 		B38D4DA91EF26C28009A6D15 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4DA81EF26C28009A6D15 /* MainTableViewController.swift */; };
 		B3ADD0ED1EF4DAE0007A1880 /* ReorderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD0EC1EF4DAE0007A1880 /* ReorderTableViewController.swift */; };
 		B3ADD0EF1EF4F617007A1880 /* SectionIndexTitleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD0EE1EF4F617007A1880 /* SectionIndexTitleController.swift */; };
-		B3ADD0F31EF4FF74007A1880 /* ComplexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD0F21EF4FF74007A1880 /* ComplexTableViewController.swift */; };
+		B3ADD0F31EF4FF74007A1880 /* ComplexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD0F21EF4FF74007A1880 /* ComplexController.swift */; };
 		B3ADD0F71EF53E60007A1880 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B3ADD0F61EF53E60007A1880 /* LaunchScreen.png */; };
 		B3E5824F1EF2D91C00314AB3 /* CusomCellWithXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5824D1EF2D91C00314AB3 /* CusomCellWithXib.swift */; };
 		B3E582501EF2D91C00314AB3 /* CusomCellWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E5824E1EF2D91C00314AB3 /* CusomCellWithXib.xib */; };
@@ -62,12 +62,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B31F34E31EF27104005FA5E8 /* SystemCellUsageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCellUsageController.swift; sourceTree = "<group>"; };
+		B31F34E31EF27104005FA5E8 /* SystemCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCellController.swift; sourceTree = "<group>"; };
 		B31F34E91EF27145005FA5E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B31F34EB1EF27145005FA5E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		B3376E721EF3B3180003F154 /* CustomCellWithCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellWithCode.swift; sourceTree = "<group>"; };
-		B3376E741EF3B3950003F154 /* CustomCodeRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCodeRow.swift; sourceTree = "<group>"; };
-		B3376E761EF3B7800003F154 /* CustomCellWithCodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellWithCodeController.swift; sourceTree = "<group>"; };
+		B3376E721EF3B3180003F154 /* DynamicHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicHeightCell.swift; sourceTree = "<group>"; };
+		B3376E741EF3B3950003F154 /* DynamicHeightRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicHeightRow.swift; sourceTree = "<group>"; };
+		B3376E761EF3B7800003F154 /* DynamicHeightCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicHeightCellController.swift; sourceTree = "<group>"; };
 		B3376E781EF3BD3E0003F154 /* EditableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTableViewController.swift; sourceTree = "<group>"; };
 		B3756B2F1EF2A05900661760 /* avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar@2x.png"; sourceTree = "<group>"; };
 		B37C55D31EF26D160069FEB3 /* MDTable.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MDTable.xcodeproj; path = MDTable/MDTable.xcodeproj; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		B38D4DA81EF26C28009A6D15 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		B3ADD0EC1EF4DAE0007A1880 /* ReorderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReorderTableViewController.swift; sourceTree = "<group>"; };
 		B3ADD0EE1EF4F617007A1880 /* SectionIndexTitleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionIndexTitleController.swift; sourceTree = "<group>"; };
-		B3ADD0F21EF4FF74007A1880 /* ComplexTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexTableViewController.swift; sourceTree = "<group>"; };
+		B3ADD0F21EF4FF74007A1880 /* ComplexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexController.swift; sourceTree = "<group>"; };
 		B3ADD0F61EF53E60007A1880 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		B3E5824D1EF2D91C00314AB3 /* CusomCellWithXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CusomCellWithXib.swift; sourceTree = "<group>"; };
 		B3E5824E1EF2D91C00314AB3 /* CusomCellWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CusomCellWithXib.xib; sourceTree = "<group>"; };
@@ -101,19 +101,19 @@
 		B3376E6B1EF3B2840003F154 /* Dynamic Height */ = {
 			isa = PBXGroup;
 			children = (
-				B3376E721EF3B3180003F154 /* CustomCellWithCode.swift */,
-				B3376E741EF3B3950003F154 /* CustomCodeRow.swift */,
-				B3376E761EF3B7800003F154 /* CustomCellWithCodeController.swift */,
+				B3376E721EF3B3180003F154 /* DynamicHeightCell.swift */,
+				B3376E741EF3B3950003F154 /* DynamicHeightRow.swift */,
+				B3376E761EF3B7800003F154 /* DynamicHeightCellController.swift */,
 			);
 			name = "Dynamic Height";
 			sourceTree = "<group>";
 		};
-		B3376E6C1EF3B29A0003F154 /* ComplexTable */ = {
+		B3376E6C1EF3B29A0003F154 /* Complex */ = {
 			isa = PBXGroup;
 			children = (
-				B3ADD0F21EF4FF74007A1880 /* ComplexTableViewController.swift */,
+				B3ADD0F21EF4FF74007A1880 /* ComplexController.swift */,
 			);
-			name = ComplexTable;
+			name = Complex;
 			sourceTree = "<group>";
 		};
 		B3376E6D1EF3B29E0003F154 /* Edit */ = {
@@ -168,10 +168,10 @@
 		B38D4D801EF26B46009A6D15 /* MDTableExample */ = {
 			isa = PBXGroup;
 			children = (
-				B3E582541EF2DA9B00314AB3 /* SystemCell */,
+				B3E582541EF2DA9B00314AB3 /* System */,
 				B3E582531EF2DA9400314AB3 /* Custom Cell With XIB */,
 				B3376E6B1EF3B2840003F154 /* Dynamic Height */,
-				B3376E6C1EF3B29A0003F154 /* ComplexTable */,
+				B3376E6C1EF3B29A0003F154 /* Complex */,
 				B3376E6E1EF3B2B80003F154 /* Reorder */,
 				B3376E6D1EF3B29E0003F154 /* Edit */,
 				B3376E711EF3B2E00003F154 /* Index Title */,
@@ -199,12 +199,12 @@
 			name = "Custom Cell With XIB";
 			sourceTree = "<group>";
 		};
-		B3E582541EF2DA9B00314AB3 /* SystemCell */ = {
+		B3E582541EF2DA9B00314AB3 /* System */ = {
 			isa = PBXGroup;
 			children = (
-				B31F34E31EF27104005FA5E8 /* SystemCellUsageController.swift */,
+				B31F34E31EF27104005FA5E8 /* SystemCellController.swift */,
 			);
-			name = SystemCell;
+			name = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,17 +301,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3376E731EF3B3180003F154 /* CustomCellWithCode.swift in Sources */,
+				B3376E731EF3B3180003F154 /* DynamicHeightCell.swift in Sources */,
 				B3ADD0EF1EF4F617007A1880 /* SectionIndexTitleController.swift in Sources */,
 				B3ADD0ED1EF4DAE0007A1880 /* ReorderTableViewController.swift in Sources */,
 				B38D4DA91EF26C28009A6D15 /* MainTableViewController.swift in Sources */,
 				B3E582521EF2DA3B00314AB3 /* CustomCellWithXibController.swift in Sources */,
 				B38D4D821EF26B46009A6D15 /* AppDelegate.swift in Sources */,
-				B3ADD0F31EF4FF74007A1880 /* ComplexTableViewController.swift in Sources */,
-				B3376E751EF3B3950003F154 /* CustomCodeRow.swift in Sources */,
+				B3ADD0F31EF4FF74007A1880 /* ComplexController.swift in Sources */,
+				B3376E751EF3B3950003F154 /* DynamicHeightRow.swift in Sources */,
 				B3376E791EF3BD3E0003F154 /* EditableTableViewController.swift in Sources */,
-				B3376E771EF3B7800003F154 /* CustomCellWithCodeController.swift in Sources */,
-				B31F34E41EF27104005FA5E8 /* SystemCellUsageController.swift in Sources */,
+				B3376E771EF3B7800003F154 /* DynamicHeightCellController.swift in Sources */,
+				B31F34E41EF27104005FA5E8 /* SystemCellController.swift in Sources */,
 				B3E5824F1EF2D91C00314AB3 /* CusomCellWithXib.swift in Sources */,
 				B3E582561EF2DADF00314AB3 /* CustomXibRow.swift in Sources */,
 			);
