@@ -19,7 +19,7 @@ open class ReactiveRow : RowConvertable{
     public init(){
         self.rowHeight = 44.0
         self.reuseIdentifier = "Row"
-        self.initalType = .code(className: SystemTableViewCell.self)
+        self.initalType = .code(className: MDTableViewCell.self)
         self.estimatedHeight = self.rowHeight
         self.indentationLevel = 0
         self.shouldHighlight = true
@@ -96,7 +96,7 @@ extension ReactiveRow{
         return { (tableView, indexPath) in
             
             if let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier){
-                if let cell = cell as? SystemTableViewCell{
+                if let cell = cell as? MDTableViewCell{
                     cell.render(with: self)
                 }
                 if let _render = self._render{
@@ -107,7 +107,7 @@ extension ReactiveRow{
                 switch self.initalType{
                 case .code(let cellClass):
                     let cell = cellClass.init(style: self.cellStyle, reuseIdentifier: self.reuseIdentifier)
-                    if let cell = cell as? SystemTableViewCell{
+                    if let cell = cell as? MDTableViewCell{
                         cell.render(with: self)
                     }
                     if let _render = self._render{
@@ -118,7 +118,7 @@ extension ReactiveRow{
                     let nib = UINib(nibName: xibName, bundle: Bundle.main)
                     tableView.register(nib, forCellReuseIdentifier: self.reuseIdentifier)
                     let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier)
-                    if let cell = cell as? SystemTableViewCell{
+                    if let cell = cell as? MDTableViewCell{
                         cell.render(with: self)
                     }
                     if let _render = self._render, let cell = cell{

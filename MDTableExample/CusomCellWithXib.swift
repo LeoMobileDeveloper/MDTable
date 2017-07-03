@@ -9,7 +9,7 @@
 import UIKit
 import MDTable
 
-class CusomCellWithXib: SystemTableViewCell{
+class CusomCellWithXib: MDTableViewCell{
 
     @IBOutlet weak var customSubTitleLabel: UILabel!
     @IBOutlet weak var customTitleLabel: UILabel!

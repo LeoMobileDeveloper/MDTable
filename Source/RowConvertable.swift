@@ -51,7 +51,7 @@ extension RowConvertable{
         return { (tableView, indexPath) in
             
             if let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier){
-                if let cell = cell as? SystemTableViewCell{
+                if let cell = cell as? MDTableViewCell{
                     cell.render(with: self)
                 }
                 return cell;
@@ -59,7 +59,7 @@ extension RowConvertable{
                 switch self.initalType{
                 case .code(let cellClass):
                     let cell = cellClass.init(style: self.cellStyle, reuseIdentifier: self.reuseIdentifier)
-                    if let cell = cell as? SystemTableViewCell{
+                    if let cell = cell as? MDTableViewCell{
                         cell.render(with: self)
                     }
                     return cell
@@ -67,7 +67,7 @@ extension RowConvertable{
                     let nib = UINib(nibName: xibName, bundle: Bundle.main)
                     tableView.register(nib, forCellReuseIdentifier: self.reuseIdentifier)
                     let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier)
-                    if let cell = cell as? SystemTableViewCell{
+                    if let cell = cell as? MDTableViewCell{
                         cell.render(with: self)
                     }
                     return cell!

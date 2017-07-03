@@ -9,7 +9,7 @@
 import UIKit
 
 
-open class SystemTableViewCell:UITableViewCell{
+open class MDTableViewCell:UITableViewCell{
     public typealias MDRowDataType = Row
     open func render(with row: RowConvertable) {
         if let row = row as? Row{

@@ -16,6 +16,7 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         let rowClickAction:(UITableView,IndexPath,UIViewController.Type)->Void = {  [unowned self] (tableView, indexPath, controllerClass) in
             tableView.deselectRow(at: indexPath, animated: true)

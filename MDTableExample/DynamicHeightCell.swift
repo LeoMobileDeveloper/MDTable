@@ -13,7 +13,7 @@ struct DynamicHeightCellConst{
     static let font = UIFont.systemFont(ofSize: 16)
     static let cellWidth = UIScreen.main.bounds.size.width - 20.0
 }
-class DynamicHeightCell: SystemTableViewCell {
+class DynamicHeightCell: MDTableViewCell {
     
     var customLabel: UILabel!
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
