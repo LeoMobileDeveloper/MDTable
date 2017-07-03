@@ -18,11 +18,15 @@ public protocol RowConvertable {
     var rowHeight: CGFloat {get}
     var reuseIdentifier: String{get}
     var initalType: RowConvertableInitalType{get}
-    
+
     //These are optional
-    var estimatedHeighAt:(UITableView,IndexPath) -> CGFloat {get}
+    var estimatedHeight:CGFloat {get}
+    var indentationLevel: Int {get}
+    var shouldHighlight: Bool {get}
+
+    //Core
     var cellForRowAt:(UITableView, IndexPath) -> UITableViewCell {get}
-    var indentationLevelForRowAt:(UITableView, IndexPath) -> Int {get}
+    
     var willDisplay:(UITableView,UITableViewCell,IndexPath)->Void{get}
     var didEndDisplaying:(UITableView,UITableViewCell,IndexPath)->Void{get}
     var accessoryButtonTappedForRowWith:(UITableView, IndexPath) -> Void{get}
@@ -31,7 +35,6 @@ public protocol RowConvertable {
     var didSelectRowAt:(UITableView,IndexPath)->Void {get}
     var didDeselectRowAt:(UITableView,IndexPath)->Void {get}
     
-    var shouldHighlight: Bool {get}
     var didHighlightRowAt:(UITableView,IndexPath)->Void {get}
     var didUnhighlightRowAt:(UITableView,IndexPath)->Void {get}
 }
@@ -41,10 +44,8 @@ extension RowConvertable{
         return .default
     }
 
-    public var estimatedHeighAt:(UITableView,IndexPath) -> CGFloat{
-        return { (_,_) in
-            return UITableViewAutomaticDimension
-        }
+    public var estimatedHeight:CGFloat{
+        return UITableViewAutomaticDimension
     }
     public var cellForRowAt:(UITableView, IndexPath) -> UITableViewCell{
         return { (tableView, indexPath) in
@@ -74,10 +75,8 @@ extension RowConvertable{
             }
         }
     }
-    public var indentationLevelForRowAt:(UITableView, IndexPath) -> Int{
-        return { (tableView, indexPath) in
-            return 0
-        }
+    public var indentationLevel: Int{
+       return 0
     }
     public var willDisplay:(UITableView,UITableViewCell,IndexPath)->Void{
         return {_,_,_ in }

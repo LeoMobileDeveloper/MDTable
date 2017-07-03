@@ -11,7 +11,7 @@ import UIKit
 public class TableManager{
     
     public var sections:[SectionConvertable]
-    public var editorManager:TableEditor?
+    public var editorManager:Editor?
     public var menuManager:TableMenuManager?
     public var focusManager:TableFocusManager?
     public weak var tableView:UITableView?
@@ -21,7 +21,7 @@ public class TableManager{
     var sectionIndexMap:[Int:Int] = [:]//Map index in sectionIndexTitles to section
     public init(sections:[SectionConvertable],
                 delegate:TableDelegate = TableDelegate(),
-                editor:TableEditor? = nil
+                editor:Editor? = nil
         ) {
         self.sections = sections
         self.delegate = delegate

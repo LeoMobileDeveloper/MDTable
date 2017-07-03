@@ -16,10 +16,10 @@ class CustomCellWithXibController: UITableViewController {
         navigationItem.title = "Custom cell with XIB"
         let rows = (1..<100).map { (index) -> XibRow  in
             let row = XibRow(title: "Title\(index)", subTitle: "Subtitle \(index)", image: UIImage(named: "avatar")!)
-            row.didSelectRowAt = {(tableView, indexPath) in
+            row.onDidSelected({ (tableView, indexPath) in
                 tableView.manager?.delete(row: indexPath)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
-            }
+            })
             return row
         }
         let section = Section(rows: rows)

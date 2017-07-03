@@ -9,13 +9,16 @@
 import UIKit
 import ObjectiveC
 
+struct MDTableConst{
+    static let associatedKey = UnsafeRawPointer.init(bitPattern: "MDTableAccessoryKey".hashValue)
+}
 public extension UITableView{
     var manager:TableManager?{
         get{
-            return objc_getAssociatedObject(self, "MDTableManager") as? TableManager
+            return objc_getAssociatedObject(self,MDTableConst.associatedKey) as? TableManager
         }set{
             newValue?.bindTo(tableView: self)
-            objc_setAssociatedObject(self, "MDTableManager", newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, MDTableConst.associatedKey, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
 }

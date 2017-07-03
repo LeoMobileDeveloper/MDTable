@@ -9,13 +9,7 @@
 import Foundation
 import MDTable
 
-class XibRow: RowConvertable{
-    //Protocol
-    var rowHeight: CGFloat = 80.0
-    var reuseIdentifier: String = "XibRow"
-    var initalType: RowConvertableInitalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib")
-    
-    var didSelectRowAt: (UITableView, IndexPath) -> Void
+class XibRow:ReactiveRow{
     
     //Data
     var title:String
@@ -25,7 +19,10 @@ class XibRow: RowConvertable{
         self.title = title
         self.subTitle = subTitle
         self.image = image
-        self.didSelectRowAt = {_,_ in}
+        super.init()
+        self.rowHeight = 80.0
+        self.reuseIdentifier = "XibRow"
+        self.initalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib")
     }
 
 }

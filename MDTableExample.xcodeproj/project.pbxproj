@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3127DEF1F0A42960048413C /* MDTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37C55D81EF26D160069FEB3 /* MDTable.framework */; };
+		B3127DF01F0A42960048413C /* MDTable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B37C55D81EF26D160069FEB3 /* MDTable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B31F34E41EF27104005FA5E8 /* SystemCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31F34E31EF27104005FA5E8 /* SystemCellController.swift */; };
 		B31F34EC1EF271CA005FA5E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31F34E81EF27145005FA5E8 /* LaunchScreen.storyboard */; };
 		B31F34ED1EF271CA005FA5E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31F34EA1EF27145005FA5E8 /* Main.storyboard */; };
@@ -15,8 +17,6 @@
 		B3376E771EF3B7800003F154 /* DynamicHeightCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E761EF3B7800003F154 /* DynamicHeightCellController.swift */; };
 		B3376E791EF3BD3E0003F154 /* EditableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3376E781EF3BD3E0003F154 /* EditableTableViewController.swift */; };
 		B3756B301EF2A05900661760 /* avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3756B2F1EF2A05900661760 /* avatar@2x.png */; };
-		B37C55E01EF26ED40069FEB3 /* MDTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37C55D81EF26D160069FEB3 /* MDTable.framework */; };
-		B37C55E11EF26ED40069FEB3 /* MDTable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B37C55D81EF26D160069FEB3 /* MDTable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B38D4D821EF26B46009A6D15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D811EF26B46009A6D15 /* AppDelegate.swift */; };
 		B38D4D891EF26B46009A6D15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B38D4D881EF26B46009A6D15 /* Assets.xcassets */; };
 		B38D4DA91EF26C28009A6D15 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4DA81EF26C28009A6D15 /* MainTableViewController.swift */; };
@@ -27,10 +27,17 @@
 		B3E5824F1EF2D91C00314AB3 /* CusomCellWithXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E5824D1EF2D91C00314AB3 /* CusomCellWithXib.swift */; };
 		B3E582501EF2D91C00314AB3 /* CusomCellWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E5824E1EF2D91C00314AB3 /* CusomCellWithXib.xib */; };
 		B3E582521EF2DA3B00314AB3 /* CustomCellWithXibController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E582511EF2DA3B00314AB3 /* CustomCellWithXibController.swift */; };
-		B3E582561EF2DADF00314AB3 /* CustomXibRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E582551EF2DADF00314AB3 /* CustomXibRow.swift */; };
+		B3E582561EF2DADF00314AB3 /* XibRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E582551EF2DADF00314AB3 /* XibRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B3127DF11F0A42960048413C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B37C55D31EF26D160069FEB3 /* MDTable.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B38D4D681EF2498C009A6D15;
+			remoteInfo = MDTable;
+		};
 		B37C55D71EF26D160069FEB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B37C55D31EF26D160069FEB3 /* MDTable.xcodeproj */;
@@ -38,23 +45,16 @@
 			remoteGlobalIDString = B38D4D691EF2498C009A6D15;
 			remoteInfo = MDTable;
 		};
-		B37C55E21EF26ED40069FEB3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B37C55D31EF26D160069FEB3 /* MDTable.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B38D4D681EF2498C009A6D15;
-			remoteInfo = MDTable;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B37C55E41EF26ED40069FEB3 /* Embed Frameworks */ = {
+		B3127DF31F0A42960048413C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B37C55E11EF26ED40069FEB3 /* MDTable.framework in Embed Frameworks */,
+				B3127DF01F0A42960048413C /* MDTable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,7 +83,7 @@
 		B3E5824D1EF2D91C00314AB3 /* CusomCellWithXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CusomCellWithXib.swift; sourceTree = "<group>"; };
 		B3E5824E1EF2D91C00314AB3 /* CusomCellWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CusomCellWithXib.xib; sourceTree = "<group>"; };
 		B3E582511EF2DA3B00314AB3 /* CustomCellWithXibController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellWithXibController.swift; sourceTree = "<group>"; };
-		B3E582551EF2DADF00314AB3 /* CustomXibRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomXibRow.swift; sourceTree = "<group>"; };
+		B3E582551EF2DADF00314AB3 /* XibRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B37C55E01EF26ED40069FEB3 /* MDTable.framework in Frameworks */,
+				B3127DEF1F0A42960048413C /* MDTable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +194,7 @@
 				B3E5824D1EF2D91C00314AB3 /* CusomCellWithXib.swift */,
 				B3E5824E1EF2D91C00314AB3 /* CusomCellWithXib.xib */,
 				B3E582511EF2DA3B00314AB3 /* CustomCellWithXibController.swift */,
-				B3E582551EF2DADF00314AB3 /* CustomXibRow.swift */,
+				B3E582551EF2DADF00314AB3 /* XibRow.swift */,
 			);
 			name = "Custom Cell With XIB";
 			sourceTree = "<group>";
@@ -217,12 +217,12 @@
 				B38D4D7A1EF26B46009A6D15 /* Sources */,
 				B38D4D7B1EF26B46009A6D15 /* Frameworks */,
 				B38D4D7C1EF26B46009A6D15 /* Resources */,
-				B37C55E41EF26ED40069FEB3 /* Embed Frameworks */,
+				B3127DF31F0A42960048413C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B37C55E31EF26ED40069FEB3 /* PBXTargetDependency */,
+				B3127DF21F0A42960048413C /* PBXTargetDependency */,
 			);
 			name = MDTableExample;
 			productName = MDTableExample;
@@ -313,17 +313,17 @@
 				B3376E771EF3B7800003F154 /* DynamicHeightCellController.swift in Sources */,
 				B31F34E41EF27104005FA5E8 /* SystemCellController.swift in Sources */,
 				B3E5824F1EF2D91C00314AB3 /* CusomCellWithXib.swift in Sources */,
-				B3E582561EF2DADF00314AB3 /* CustomXibRow.swift in Sources */,
+				B3E582561EF2DADF00314AB3 /* XibRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B37C55E31EF26ED40069FEB3 /* PBXTargetDependency */ = {
+		B3127DF21F0A42960048413C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MDTable;
-			targetProxy = B37C55E21EF26ED40069FEB3 /* PBXContainerItemProxy */;
+			targetProxy = B3127DF11F0A42960048413C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -351,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -408,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -457,7 +459,6 @@
 		B38D4D911EF26B46009A6D15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R7X999328A;
 				INFOPLIST_FILE = MDTableExample/Info.plist;
@@ -472,7 +473,6 @@
 		B38D4D921EF26B46009A6D15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R7X999328A;
 				INFOPLIST_FILE = MDTableExample/Info.plist;
