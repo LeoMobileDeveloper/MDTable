@@ -1,5 +1,5 @@
 //
-//  ComplexTableViewController.swift
+//  ComplexController.swift
 //  MDTableExample
 //
 //  Created by Leo on 2017/6/17.
@@ -9,7 +9,7 @@
 import Foundation
 import MDTable
 
-class ComplexTableViewController: UITableViewController {
+class ComplexController: UITableViewController {
     var tableManager:TableManager!
     
     override func viewDidLoad() {

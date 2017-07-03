@@ -1,5 +1,5 @@
 //
-//  CustomCodeRow.swift
+//  DynamicHeightRow.swift
 //  MDTableExample
 //
 //  Created by Leo on 2017/6/16.
@@ -9,12 +9,12 @@
 import Foundation
 import MDTable
 
-class CustomCodeRow: TableRow{
+class DynamicHeightRow: RowConvertable{
     //Protocol
     var rowHeight: CGFloat{
         get{
-            let attributes = [NSFontAttributeName: CustomCellWithCodeConfig.font]
-            let size = CGSize(width: CustomCellWithCodeConfig.cellWidth, height: .greatestFiniteMagnitude)
+            let attributes = [NSFontAttributeName: DynamicHeightCellConst.font]
+            let size = CGSize(width: DynamicHeightCellConst.cellWidth, height: .greatestFiniteMagnitude)
             let height = (self.title as NSString).boundingRect(with: size,
                                                                options: [.usesLineFragmentOrigin],
                                                                attributes: attributes,
@@ -22,8 +22,8 @@ class CustomCodeRow: TableRow{
             return height + 8.0
         }
     }
-    var reuseIdentifier: String = "CustomCodeRow"
-    var initalType: TableRowInitalType = TableRowInitalType.code(className: CustomCellWithCode.self)
+    var reuseIdentifier: String = "DynamicHeightRow"
+    var initalType: RowConvertableInitalType = RowConvertableInitalType.code(className: DynamicHeightCell.self)
     
     //Optional evnet 
     var didSelectRowAt: (UITableView, IndexPath) -> Void

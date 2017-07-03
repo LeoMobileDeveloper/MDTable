@@ -27,11 +27,11 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     }
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         let row = tableManager.row(at: indexPath)
-        return row.estimatedHeighAt(tableView,indexPath)
+        return row.estimatedHeight
     }
     public func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
         let row = tableManager.row(at: indexPath)
-        return row.indentationLevelForRowAt(tableView, indexPath)
+        return row.indentationLevel
     }
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let row = tableManager.row(at: indexPath)
@@ -84,7 +84,7 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     }
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sec = tableManager.sections[section]
-        return sec.viewForHeader
+        return sec.viewForHeader(tableView, section)
     }
 
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -118,7 +118,7 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     }
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sec = tableManager.sections[section]
-        return sec.viewForFooter
+        return sec.viewForFooter(tableView,section)
     }
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let sec = tableManager.sections[section]
@@ -133,8 +133,8 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     
     public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.editActionsForRowAt(tableView, indexPath)
+        if let EditableRow = row as? EditableRow{
+            return EditableRow.editActionsForRowAt(tableView, indexPath)
         }
         return nil
     }
@@ -143,15 +143,15 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     }
     public func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.titleForDeleteConfirmationButton
+        if let EditableRow = row as? EditableRow{
+            return EditableRow.titleForDeleteConfirmationButton
         }
         return nil
     }
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.canEdit
+        if let EditableRow = row as? EditableRow{
+            return EditableRow.canEdit
         }
         return false
     }
@@ -174,21 +174,21 @@ public class TableDelegate: NSObject, UITableViewDataSource,UITableViewDelegate{
     }
     public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.editingStyle
+        if let EditableRow = row as? EditableRow{
+            return EditableRow.editingStyle
         }
         return .none
     }
     public func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         let row = tableManager.row(at: indexPath)
-        if let editableRow = row as? EditableRow{
-            return editableRow.shouldIndentWhileEditing
+        if let EditableRow = row as? EditableRow{
+            return EditableRow.shouldIndentWhileEditing
         }
         return false
     }
     public func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-        if let tableEditor = tableManager.editorManager {
-            return tableEditor.targetIndexPathForMoveFromTotoProposedIndexPath(tableView, sourceIndexPath, proposedDestinationIndexPath)
+        if let Editor = tableManager.editorManager {
+            return Editor.targetIndexPathForMoveFromTotoProposedIndexPath(tableView, sourceIndexPath, proposedDestinationIndexPath)
         }
         return proposedDestinationIndexPath
     }

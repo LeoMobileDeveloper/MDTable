@@ -17,19 +17,18 @@ class SectionIndexTitleController: UITableViewController {
         tableView.allowsSelectionDuringEditing = false
         navigationItem.title = "Index Titles"
         
-        var sections = [SystemSection]()
+        var sections = [Section]()
         for secionTitle in ["A","B","C","E","G","H","K","M","Z"]{
-            var rows = [SystemRow]()
+            var rows = [Row]()
             (1..<5).forEach{ (index) in
-                rows.append(SystemRow(title: "\(index)"))
+                rows.append(Row(title: "\(index)"))
             }
-            let section = SystemSection(rows: rows)
+            let section = Section(rows: rows)
             section.heightForHeader = 30.0
             section.titleForHeader = secionTitle
             section.sectionIndexTitle = secionTitle
             sections.append(section)
         }
-        tableManager = TableManager(sections: sections)
-        tableView.md_bindTo(manager: tableManager)
+        tableView.manager = TableManager(sections: sections)
     }
 }

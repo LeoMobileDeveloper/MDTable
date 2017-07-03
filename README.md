@@ -14,17 +14,20 @@
 
 ## MDTables
 
-MDTable is a **model driven tableView framework**. 
+MDTable is a **model-driven and declarative framework**. 
 
 ```
-let row0_0 = SystemRow(title: "System Cell", accessoryType: .disclosureIndicator)
-let row0_1 = SystemRow(title: "Custom Cell", accessoryType: .disclosureIndicator)
-let section0 = SystemSection(rows: [row0_0,row0_1]])
+let row0 = Row(title: "System Cell", accessoryType: .disclosureIndicator)
+row0.onDidSelected { (tableView, indexPath) in
+    tableView.deselectRow(at: indexPath, animated: true)
+}
+let row1 = Row(title: "Custom Cell", accessoryType: .disclosureIndicator)
+    
+let section0 = Section(rows: [row0,row1])
 section0.titleForHeader = "Basic"
 section0.heightForHeader = 30.0
-
-tableManager = TableManager(sections: [section0,section1])
-tableView.md_bindTo(manager: tableManager)
+    
+tableView.manager = TableManager(sections: [section0])
 ```
 
 And your tableView is ready.
@@ -47,38 +50,41 @@ And your tableView is ready.
 pod "MDTable"
 ```
 
+### Carthage
+
+```
+github "LeoMobileDeveloper/MDTable"
+```
+
 ## Useage
 
 ### Basic concept
 
-Using MDTable, for each `tableView`, you need a `TableManger` to manage your sections and rows.
-
-```
-var tableManager:TableManager!
-```
-
-There are two protocol:`TableSection` and `TableRow` act as the model of section and row.
-
 MDTable offers tow basic types:
 
-- `SystemRow` - model of `UITableViewCell`.
-- `SystemSection`- model of Section
+- `Row` - model of Cell.
+- `Section`- model of Section
+
+
+You create rows and sections.
 
 ```
-let row1 = SystemRow(title: "Custom Color", rowHeight: 40.0, accessoryType: .detailDisclosureButton)
-row1.onRender { (cell,isInital) in //Configure the style of UITableViewCell
-    cell.textLabel?.textColor = UIColor.orange
-    cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
-}.onDidSelected { (tableView, indexPath) in //Handle click event
-    tableView.deselectRow(at: indexPath, animated: true)
+let row = Row(title: "System Cell", accessoryType: .disclosureIndicator)
+let section0 = Section(rows: row)
+```
+
+Then use declarative API to handle event
+
+```
+row.onWillDisplay { (tableView, cell, indexPath) in
+    //Access manager with tableView.manager
+}
+row.onDidSelected { (tableView, indexPath) in
+    
 }
 
-let section = SystemSection(rows: [row1])
-section.heightForHeader = 10.0
-section.heightForFooter = 0.0
 ```
-
-Then bind your `tableView` to `tableManager`, and your table is ready
+Then,create a manager and bind to tableView
 
 ```
 tableManager = TableManager(sections: [section0])
@@ -89,34 +95,35 @@ tableView.md_bindTo(manager: tableManager)
 
 #### Model
 
-Create a type that conforms to `TableRow` to act as the Model of each Row.
+Create a subClass of `ReactiveRow`
 
 ```
-import MDTable
-class CustomXibRow: TableRow{
-    //Protocol
-    var rowHeight: CGFloat = 80.0
-    var reuseIdentifier: String = "CustomXibRow"
-    var initalType: TableRowInitalType = .(xibName: "CusomCellWithXib")
-    // Add any event you want to handle
-    var didSelectRowAt: (UITableView, IndexPath) -> Void
+class XibRow:ReactiveRow{
+    //Data
+    var title:String
+    var subTitle:String
+    var image:UIImage
+    init(title:String, subTitle:String, image:UIImage) {
+        self.title = title
+        self.subTitle = subTitle
+        self.image = image
+        super.init()
+        self.rowHeight = 80.0
+        self.reuseIdentifier = "XibRow"
+        self.initalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib")
+    }
+
 }
 ```
 
-At least, you need these three propertys
-
-- `rowHeight` height of the row. It can be a compute property so that you can get dynamic height.
-- `reuseIdentifier` reuse identifier of the cell
-- `initalType` how the cell is initally created. Either load from xib or create from class
-
 #### Cell
 
-Create a `SystemTableViewCell` subclass,and override `render`
+Create a subclass of `MDTableViewCell`,and override `render`
 
 ```
-class CusomCellWithXib: SystemTableViewCell{    
+class CusomCellWithXib: MDTableViewCell{    
     override func render(with row: TableRow) {
-        guard let row = row as? CustomXibRow else{
+        guard let row = row as? XibRow else{
             return;
         }
         //Render the cell 
@@ -127,10 +134,15 @@ class CusomCellWithXib: SystemTableViewCell{
 #### Magic happens
 
 ```
-let row = CustomXibRow()
-let section = SystemSection(rows: row)
-tableManager = TableManager(sections: [section])
-tableView.md_bindTo(manager: tableManager)
+let row = XibRow(title: "Title", subTitle: "Subtitle", image: UIImage(named: "avatar")!)
+row.onDidSelected({ (tableView, indexPath) in
+    tableView.manager?.delete(row: indexPath)
+    tableView.deleteRows(at: [indexPath], with: .automatic)
+})
+let section = Section(rows: rows)
+section.heightForHeader = 30.0
+section.titleForHeader = "Tap Row to Delete"
+tableView.manager = TableManager(sections: [section])
 ```
 
 ## Note
@@ -138,9 +150,8 @@ tableView.md_bindTo(manager: tableManager)
 You need to use `[unowned self]` to avoid retain circle
 
 ```
-row.didSelectRowAt = { [unowned self] (tableView, indexPath) in
-	self.tableManager.delete(row: indexPath)
-	tableView.deleteRows(at: [indexPath], with: .automatic)
+row.onDidSelected = { [unowned self] (tableView, indexPath) in
+	//Access self here
 }
 ```
 

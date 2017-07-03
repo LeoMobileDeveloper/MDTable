@@ -9,14 +9,14 @@
 import UIKit
 import MDTable
 
-class CusomCellWithXib: SystemTableViewCell{
+class CusomCellWithXib: MDTableViewCell{
 
     @IBOutlet weak var customSubTitleLabel: UILabel!
     @IBOutlet weak var customTitleLabel: UILabel!
     @IBOutlet weak var avaterImageView: UIImageView!
     
-    override func render(with row: TableRow) {
-        guard let row = row as? CustomXibRow else{
+    override func render(with row: RowConvertable) {
+        guard let row = row as? XibRow else{
             return;
         }
         customTitleLabel.text = row.title

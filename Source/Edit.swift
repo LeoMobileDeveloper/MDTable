@@ -30,7 +30,7 @@ extension EditableRow{
     }
 }
 
-public protocol TableEditor{
+public protocol Editor{
     var editingStyleCommitForRowAt:(UITableView,UITableViewCellEditingStyle,IndexPath)->Void {get}
     
     //These are optional
@@ -40,7 +40,7 @@ public protocol TableEditor{
     var didEndEditingRowAt:(UITableView, IndexPath?) -> Void {get}
 }
 
-extension TableEditor{
+extension Editor{
     public var willBeginEditingRowAt:(UITableView, IndexPath) -> Void{
         return {(_,_) in}
     }
@@ -57,20 +57,16 @@ extension TableEditor{
     }
 }
 
-public protocol TableMenuManager{
-    
-    func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool
-    
-    func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool
-    
-    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?)
-}
 
-public protocol TableFocusManager{
-    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool
-    @available(iOS 9.0, *)
-    func tableView(_ tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
-    @available(iOS 9.0, *)
-    func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
-    func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath?
+open class TableEditor:Editor{
+    public var editingStyleCommitForRowAt: (UITableView, UITableViewCellEditingStyle, IndexPath) -> Void
+    public var willBeginEditingRowAt:(UITableView, IndexPath) -> Void
+    public var didEndEditingRowAt:(UITableView, IndexPath?) -> Void
+    public var moveRowAtSourceIndexPathToDestinationIndexPath:(UITableView, IndexPath, IndexPath)->Void
+    public init(){
+        editingStyleCommitForRowAt = { (_,_,_) in}
+        moveRowAtSourceIndexPathToDestinationIndexPath = { (_,_,_) in}
+        willBeginEditingRowAt = {(_,_) in}
+        didEndEditingRowAt = {(_,_) in}
+    }
 }

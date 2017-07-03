@@ -7,27 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3127DF41F0A42AA0048413C /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DEE1F0A42170048413C /* Table.swift */; };
+		B3127DF51F0A42AA0048413C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DE51F0A42170048413C /* Cell.swift */; };
+		B3127DF61F0A42AA0048413C /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DED1F0A42170048413C /* Delegate.swift */; };
+		B3127DF71F0A42AA0048413C /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DE81F0A42170048413C /* Row.swift */; };
+		B3127DF81F0A42AA0048413C /* ReactiveRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DE91F0A42170048413C /* ReactiveRow.swift */; };
+		B3127DF91F0A42AA0048413C /* RowConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DEA1F0A42170048413C /* RowConvertable.swift */; };
+		B3127DFA1F0A42AA0048413C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DEC1F0A42170048413C /* Section.swift */; };
+		B3127DFB1F0A42AA0048413C /* SectionConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DE41F0A42160048413C /* SectionConvertable.swift */; };
+		B3127DFC1F0A42AA0048413C /* Focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DEB1F0A42170048413C /* Focus.swift */; };
+		B3127DFD1F0A42AA0048413C /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DE61F0A42170048413C /* Edit.swift */; };
+		B3127DFE1F0A42AA0048413C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DE71F0A42170048413C /* Menu.swift */; };
 		B38D4D6E1EF2498C009A6D15 /* MDTable.h in Headers */ = {isa = PBXBuildFile; fileRef = B38D4D6C1EF2498C009A6D15 /* MDTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B38D4DA01EF26BE5009A6D15 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D991EF26BE5009A6D15 /* Edit.swift */; };
-		B38D4DA11EF26BE5009A6D15 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D9A1EF26BE5009A6D15 /* Cell.swift */; };
-		B38D4DA21EF26BE5009A6D15 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D9B1EF26BE5009A6D15 /* Row.swift */; };
-		B38D4DA31EF26BE5009A6D15 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D9C1EF26BE5009A6D15 /* Section.swift */; };
-		B38D4DA41EF26BE5009A6D15 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D9D1EF26BE5009A6D15 /* Table.swift */; };
-		B38D4DA51EF26BE5009A6D15 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D9E1EF26BE5009A6D15 /* Delegate.swift */; };
-		B38D4DA61EF26BE5009A6D15 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D9F1EF26BE5009A6D15 /* Manager.swift */; };
+		B38FDFA21F0A430E00A4AE18 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38FDFA11F0A430E00A4AE18 /* Manager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B3127DE41F0A42160048413C /* SectionConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionConvertable.swift; path = ../../Source/SectionConvertable.swift; sourceTree = "<group>"; };
+		B3127DE51F0A42170048413C /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = ../../Source/Cell.swift; sourceTree = "<group>"; };
+		B3127DE61F0A42170048413C /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Edit.swift; path = ../../Source/Edit.swift; sourceTree = "<group>"; };
+		B3127DE71F0A42170048413C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = ../../Source/Menu.swift; sourceTree = "<group>"; };
+		B3127DE81F0A42170048413C /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Row.swift; path = ../../Source/Row.swift; sourceTree = "<group>"; };
+		B3127DE91F0A42170048413C /* ReactiveRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReactiveRow.swift; path = ../../Source/ReactiveRow.swift; sourceTree = "<group>"; };
+		B3127DEA1F0A42170048413C /* RowConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RowConvertable.swift; path = ../../Source/RowConvertable.swift; sourceTree = "<group>"; };
+		B3127DEB1F0A42170048413C /* Focus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Focus.swift; path = ../../Source/Focus.swift; sourceTree = "<group>"; };
+		B3127DEC1F0A42170048413C /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Section.swift; path = ../../Source/Section.swift; sourceTree = "<group>"; };
+		B3127DED1F0A42170048413C /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Delegate.swift; path = ../../Source/Delegate.swift; sourceTree = "<group>"; };
+		B3127DEE1F0A42170048413C /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Table.swift; path = ../../Source/Table.swift; sourceTree = "<group>"; };
 		B38D4D691EF2498C009A6D15 /* MDTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38D4D6C1EF2498C009A6D15 /* MDTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDTable.h; sourceTree = "<group>"; };
 		B38D4D6D1EF2498C009A6D15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B38D4D991EF26BE5009A6D15 /* Edit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Edit.swift; path = ../../Source/Edit.swift; sourceTree = "<group>"; };
-		B38D4D9A1EF26BE5009A6D15 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = ../../Source/Cell.swift; sourceTree = "<group>"; };
-		B38D4D9B1EF26BE5009A6D15 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Row.swift; path = ../../Source/Row.swift; sourceTree = "<group>"; };
-		B38D4D9C1EF26BE5009A6D15 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = ../../Source/Section.swift; sourceTree = "<group>"; };
-		B38D4D9D1EF26BE5009A6D15 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Table.swift; path = ../../Source/Table.swift; sourceTree = "<group>"; };
-		B38D4D9E1EF26BE5009A6D15 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Delegate.swift; path = ../../Source/Delegate.swift; sourceTree = "<group>"; };
-		B38D4D9F1EF26BE5009A6D15 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = ../../Source/Manager.swift; sourceTree = "<group>"; };
+		B38FDFA11F0A430E00A4AE18 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = ../../Source/Manager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +70,18 @@
 		B38D4D6B1EF2498C009A6D15 /* MDTable */ = {
 			isa = PBXGroup;
 			children = (
-				B38D4D9D1EF26BE5009A6D15 /* Table.swift */,
-				B38D4D9E1EF26BE5009A6D15 /* Delegate.swift */,
-				B38D4D9F1EF26BE5009A6D15 /* Manager.swift */,
-				B38D4D9B1EF26BE5009A6D15 /* Row.swift */,
-				B38D4D9A1EF26BE5009A6D15 /* Cell.swift */,
-				B38D4D9C1EF26BE5009A6D15 /* Section.swift */,
-				B38D4D991EF26BE5009A6D15 /* Edit.swift */,
+				B3127DEE1F0A42170048413C /* Table.swift */,
+				B38FDFA11F0A430E00A4AE18 /* Manager.swift */,
+				B3127DE51F0A42170048413C /* Cell.swift */,
+				B3127DED1F0A42170048413C /* Delegate.swift */,
+				B3127DE81F0A42170048413C /* Row.swift */,
+				B3127DE91F0A42170048413C /* ReactiveRow.swift */,
+				B3127DEA1F0A42170048413C /* RowConvertable.swift */,
+				B3127DEC1F0A42170048413C /* Section.swift */,
+				B3127DE41F0A42160048413C /* SectionConvertable.swift */,
+				B3127DEB1F0A42170048413C /* Focus.swift */,
+				B3127DE61F0A42170048413C /* Edit.swift */,
+				B3127DE71F0A42170048413C /* Menu.swift */,
 				B38D4D6C1EF2498C009A6D15 /* MDTable.h */,
 				B38D4D6D1EF2498C009A6D15 /* Info.plist */,
 			);
@@ -154,13 +169,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B38D4DA01EF26BE5009A6D15 /* Edit.swift in Sources */,
-				B38D4DA51EF26BE5009A6D15 /* Delegate.swift in Sources */,
-				B38D4DA41EF26BE5009A6D15 /* Table.swift in Sources */,
-				B38D4DA31EF26BE5009A6D15 /* Section.swift in Sources */,
-				B38D4DA21EF26BE5009A6D15 /* Row.swift in Sources */,
-				B38D4DA61EF26BE5009A6D15 /* Manager.swift in Sources */,
-				B38D4DA11EF26BE5009A6D15 /* Cell.swift in Sources */,
+				B3127DF41F0A42AA0048413C /* Table.swift in Sources */,
+				B3127DF51F0A42AA0048413C /* Cell.swift in Sources */,
+				B3127DF61F0A42AA0048413C /* Delegate.swift in Sources */,
+				B3127DF71F0A42AA0048413C /* Row.swift in Sources */,
+				B3127DF81F0A42AA0048413C /* ReactiveRow.swift in Sources */,
+				B3127DF91F0A42AA0048413C /* RowConvertable.swift in Sources */,
+				B3127DFA1F0A42AA0048413C /* Section.swift in Sources */,
+				B38FDFA21F0A430E00A4AE18 /* Manager.swift in Sources */,
+				B3127DFB1F0A42AA0048413C /* SectionConvertable.swift in Sources */,
+				B3127DFC1F0A42AA0048413C /* Focus.swift in Sources */,
+				B3127DFD1F0A42AA0048413C /* Edit.swift in Sources */,
+				B3127DFE1F0A42AA0048413C /* Menu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
