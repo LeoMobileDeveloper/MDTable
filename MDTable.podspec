@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MDTable'
-  s.version          = '0.1.2'
+  s.version          = '0.2.0'
   s.summary          = 'Elegant way to write tableView in Swift'
   s.description      = <<-DESC
 A simple but power wrapper of UITableView to create model-driven TableView.

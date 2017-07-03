@@ -82,7 +82,6 @@ row.onWillDisplay { (tableView, cell, indexPath) in
 row.onDidSelected { (tableView, indexPath) in
     
 }
-
 ```
 Then,create a manager and bind to tableView
 
@@ -151,7 +150,6 @@ You need to use `[unowned self]` to avoid retain circle
 
 ```
 row.onDidSelected = { [unowned self] (tableView, indexPath) in
-	//Access self here
 }
 ```
 
