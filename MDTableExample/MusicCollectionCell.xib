@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MusicCollectionCell" customModule="MDTableExample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="104" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="104" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="avD-NY-rau">
+                        <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="avD-NY-rau" secondAttribute="height" id="xBH-D8-cqf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新歌推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPP-Ve-3z2">
+                        <rect key="frame" x="4" y="108" width="96" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐符合口味的新歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6e1-8R-3eC">
+                        <rect key="frame" x="4" y="124.5" width="96" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm4_disc_cover_new" translatesAutoresizingMaskIntoConstraints="NO" id="d1g-Dx-X5j">
+                        <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="avD-NY-rau" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1h3-IA-OXc"/>
+                <constraint firstAttribute="trailing" secondItem="rPP-Ve-3z2" secondAttribute="trailing" constant="4" id="4LH-0L-RWU"/>
+                <constraint firstItem="rPP-Ve-3z2" firstAttribute="top" secondItem="avD-NY-rau" secondAttribute="bottom" constant="4" id="IOB-yJ-V5u"/>
+                <constraint firstItem="d1g-Dx-X5j" firstAttribute="leading" secondItem="avD-NY-rau" secondAttribute="leading" id="MIR-fs-0aN"/>
+                <constraint firstAttribute="trailing" secondItem="avD-NY-rau" secondAttribute="trailing" id="WH4-fq-Lof"/>
+                <constraint firstItem="d1g-Dx-X5j" firstAttribute="trailing" secondItem="avD-NY-rau" secondAttribute="trailing" id="Wsl-5R-NoH"/>
+                <constraint firstItem="rPP-Ve-3z2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="bwA-Fw-Ggw"/>
+                <constraint firstAttribute="trailing" secondItem="6e1-8R-3eC" secondAttribute="trailing" constant="4" id="cJk-fp-pZU"/>
+                <constraint firstItem="6e1-8R-3eC" firstAttribute="top" secondItem="rPP-Ve-3z2" secondAttribute="bottom" constant="2" id="iXq-jq-RQX"/>
+                <constraint firstItem="d1g-Dx-X5j" firstAttribute="top" secondItem="avD-NY-rau" secondAttribute="top" id="lwf-PK-6Xk"/>
+                <constraint firstItem="d1g-Dx-X5j" firstAttribute="bottom" secondItem="avD-NY-rau" secondAttribute="bottom" id="lzY-6R-e5g"/>
+                <constraint firstItem="6e1-8R-3eC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="mqf-Z2-sVU"/>
+                <constraint firstItem="avD-NY-rau" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zuc-Pq-ty1"/>
+            </constraints>
+            <connections>
+                <outlet property="avatarImageView" destination="avD-NY-rau" id="N7r-hz-HiY"/>
+                <outlet property="coverImageView" destination="d1g-Dx-X5j" id="63l-LL-AgF"/>
+                <outlet property="subTitleLabel" destination="6e1-8R-3eC" id="a78-Sx-wbL"/>
+                <outlet property="titleLabel" destination="rPP-Ve-3z2" id="3jv-zD-hnv"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cm4_disc_cover_new" width="105" height="105"/>
+    </resources>
+</document>

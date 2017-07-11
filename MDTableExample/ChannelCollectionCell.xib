@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="gTV-IL-0wX" customClass="ChannelCollectionCell" customModule="MDTableExample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="104" height="144"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="104" height="144"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SV3-Y1-mgq">
+                        <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="SV3-Y1-mgq" secondAttribute="height" id="d3J-7K-1K7"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm4_cover_btm_mask" translatesAutoresizingMaskIntoConstraints="NO" id="PTE-1x-QYY">
+                        <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PTE-1x-QYY" secondAttribute="height" multiplier="1:1" id="DGB-L4-SwJ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本期嘉宾：梅婷张智霖阿娇耿乐" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCN-g2-j9p">
+                        <rect key="frame" x="4" y="110" width="96" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明星会客室" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZC-C4-kyM">
+                        <rect key="frame" x="4" y="86.5" width="61.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="XCN-g2-j9p" firstAttribute="top" secondItem="PTE-1x-QYY" secondAttribute="bottom" constant="6" id="8wd-VQ-Svu"/>
+                <constraint firstItem="SV3-Y1-mgq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="M8i-ac-09Q"/>
+                <constraint firstAttribute="trailing" secondItem="SV3-Y1-mgq" secondAttribute="trailing" id="Y49-TX-cbW"/>
+                <constraint firstItem="sZC-C4-kyM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="Z8V-9m-jVe"/>
+                <constraint firstItem="PTE-1x-QYY" firstAttribute="leading" secondItem="SV3-Y1-mgq" secondAttribute="leading" id="biM-sP-4wS"/>
+                <constraint firstItem="PTE-1x-QYY" firstAttribute="bottom" secondItem="SV3-Y1-mgq" secondAttribute="bottom" id="byW-XT-Db0"/>
+                <constraint firstItem="SV3-Y1-mgq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ctc-1g-u84"/>
+                <constraint firstAttribute="trailing" secondItem="XCN-g2-j9p" secondAttribute="trailing" constant="4" id="dun-vj-BOg"/>
+                <constraint firstItem="XCN-g2-j9p" firstAttribute="top" secondItem="sZC-C4-kyM" secondAttribute="bottom" constant="9" id="e6K-gW-RN3"/>
+                <constraint firstItem="PTE-1x-QYY" firstAttribute="trailing" secondItem="SV3-Y1-mgq" secondAttribute="trailing" id="lgM-qN-gju"/>
+                <constraint firstItem="XCN-g2-j9p" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="tMh-gs-HSI"/>
+                <constraint firstItem="PTE-1x-QYY" firstAttribute="top" secondItem="SV3-Y1-mgq" secondAttribute="top" id="wwt-FU-ZiQ"/>
+            </constraints>
+            <size key="customSize" width="121" height="146"/>
+            <connections>
+                <outlet property="avatarImageView" destination="SV3-Y1-mgq" id="KkS-UN-Zxe"/>
+                <outlet property="describeLabel" destination="XCN-g2-j9p" id="l8o-Js-0zX"/>
+                <outlet property="podcasterNameLabel" destination="sZC-C4-kyM" id="sG1-ER-RcS"/>
+            </connections>
+            <point key="canvasLocation" x="69" y="5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cm4_cover_btm_mask" width="60" height="39"/>
+    </resources>
+</document>

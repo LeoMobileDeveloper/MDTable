@@ -27,11 +27,11 @@ class MainTableViewController: UITableViewController {
         let row0_0 = Row(title: "System Cell", accessoryType: .disclosureIndicator)
         let row0_1 = Row(title: "Dynamic Height", accessoryType: .disclosureIndicator)
         let row0_2 = Row(title: "Custom Cell with XIB", accessoryType: .disclosureIndicator)
-        let row0_3 = Row(title: "Complex(TODO)", accessoryType: .disclosureIndicator)
+        let row0_3 = Row(title: "网易云音乐", accessoryType: .disclosureIndicator)
         let section0Controllers:[UIViewController.Type] = [SystemCellController.self,
                                    DynamicHeightCellController.self,
                                    CustomCellWithXibController.self,
-                                   ComplexController.self]
+                                   NeteaseCloudMusicController.self]
         let rows_0 = [row0_0, row0_1, row0_2, row0_3]
         zip(rows_0, section0Controllers).forEach {
             let (row, controller) = $0
