@@ -20,7 +20,6 @@
 		B3127DFE1F0A42AA0048413C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3127DE71F0A42170048413C /* Menu.swift */; };
 		B38D4D6E1EF2498C009A6D15 /* MDTable.h in Headers */ = {isa = PBXBuildFile; fileRef = B38D4D6C1EF2498C009A6D15 /* MDTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38FDFA21F0A430E00A4AE18 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38FDFA11F0A430E00A4AE18 /* Manager.swift */; };
-		B3F7C8021F15D9710059CCAC /* Preload .swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7C8011F15D9710059CCAC /* Preload .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		B38D4D6C1EF2498C009A6D15 /* MDTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDTable.h; sourceTree = "<group>"; };
 		B38D4D6D1EF2498C009A6D15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B38FDFA11F0A430E00A4AE18 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = ../../Source/Manager.swift; sourceTree = "<group>"; };
-		B3F7C8011F15D9710059CCAC /* Preload .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Preload .swift"; path = "../../Source/Preload .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,6 @@
 		B38D4D6B1EF2498C009A6D15 /* MDTable */ = {
 			isa = PBXGroup;
 			children = (
-				B3F7C8011F15D9710059CCAC /* Preload .swift */,
 				B3127DEE1F0A42170048413C /* Table.swift */,
 				B38FDFA11F0A430E00A4AE18 /* Manager.swift */,
 				B3127DE51F0A42170048413C /* Cell.swift */,
@@ -172,7 +169,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3F7C8021F15D9710059CCAC /* Preload .swift in Sources */,
 				B3127DF41F0A42AA0048413C /* Table.swift in Sources */,
 				B3127DF51F0A42AA0048413C /* Cell.swift in Sources */,
 				B3127DF61F0A42AA0048413C /* Delegate.swift in Sources */,
