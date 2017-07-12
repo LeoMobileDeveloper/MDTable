@@ -36,23 +36,15 @@ struct NMMusicConst {
     }
 }
 
-class NMMusicCell: MDTableViewCell,UICollectionViewDataSource,UICollectionViewDelegate {
-    var collectionView:UICollectionView!
+class NMMusicCell: MDTableViewCell {
+    var itemViews:[MusicItemView] = []
     weak var row:NMLatestMusicRow?
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.itemSize = CGSize(width: NMMusicConst.itemWidth, height: NMMusicConst.itemHeight)
-        flowLayout.minimumInteritemSpacing = 0
-        collectionView = UICollectionView(frame: contentView.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = UIColor.white
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.isScrollEnabled = false
-        contentView.addSubview(collectionView)
-        let nib = UINib(nibName: "MusicCollectionCell", bundle: Bundle.main)
-        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        for _ in 0..<6{
+            let itemView = MusicItemView(frame: CGRect.zero).added(to:contentView)
+            itemViews.append(itemView)
+        }
     }
     override func render(with row: RowConvertable) {
         guard let _row = row as? NMLatestMusicRow else {
@@ -61,7 +53,7 @@ class NMMusicCell: MDTableViewCell,UICollectionViewDataSource,UICollectionViewDe
         self.row = _row
         if _row.isDirty{
             _row.isDirty = false
-            //self.collectionView.reloadData()
+            reloadData()
         }
     }
     required init?(coder aDecoder: NSCoder) {
@@ -69,23 +61,28 @@ class NMMusicCell: MDTableViewCell,UICollectionViewDataSource,UICollectionViewDe
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        collectionView.frame = contentView.bounds
-    }
-    // MARK: - CollectionView DataSource and Delegate
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.row?.musics.count ?? 0
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MusicCollectionCell
-        let style:MusicCollectionCellStyle = indexPath.item == 0 ? .slogen : .normal;
-        if let music = self.row?.musics[indexPath.item]{
-            cell.config(music, style: style)
+        var x:CGFloat = 0.0
+        var y:CGFloat = 0.0
+        for i in 0..<itemViews.count{
+            if i == 3{
+                x = 0.0
+                y = NMMusicConst.itemHeight
+            }
+            let itemView = itemViews[i]
+            itemView.frame = CGRect(x: x, y: y, width:NMMusicConst.itemWidth, height: NMMusicConst.itemHeight)
+            x = x + itemView.frame.width + 4.0
         }
-        return cell
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-
+    func reloadData(){
+        guard let row = self.row else{
+            return
+        }
+        for i in 0..<row.musics.count{
+            let style:MusicCollectionCellStyle = i == 0 ? .slogen : .normal;
+            let music = row.musics[i]
+            let itemView = itemViews[i]
+            itemView.config(music, style: style)
+        }
     }
 }
 

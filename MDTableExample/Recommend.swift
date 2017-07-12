@@ -50,8 +50,7 @@ class NMRecommendCell: MDTableViewCell,UICollectionViewDataSource,UICollectionVi
         collectionView.dataSource = self
         collectionView.isScrollEnabled = false
         contentView.addSubview(collectionView)
-        let nib = UINib(nibName: "MusicSheetCollectionCell", bundle: Bundle.main)
-        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        collectionView.register(MusicSheetCollectionCell.self, forCellWithReuseIdentifier: "cell")
     }
     override func render(with row: RowConvertable) {
         guard let _row = row as? NMRecommendRow else {
@@ -72,7 +71,7 @@ class NMRecommendCell: MDTableViewCell,UICollectionViewDataSource,UICollectionVi
     }
     // MARK: - CollectionView DataSource and Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.row?.recommends.count ?? 0
+        return self.row?.recommends.count ?? 6
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MusicSheetCollectionCell

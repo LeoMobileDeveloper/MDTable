@@ -14,17 +14,31 @@ enum ColumnistItemCellStyle{
     case topPadding
 }
 class ColumnistItemCell: MDTableViewCell {
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var topConstraints: NSLayoutConstraint!
-    @IBOutlet weak var columnTitleLabel: UILabel!
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var readCountLabel: UILabel!
-    @IBOutlet weak var prefixLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var columnTitleLabel: UILabel!
+    var avatarImageView: UIImageView!
+    var readCountLabel: UILabel!
+    var prefixLabel: UILabel!
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    func commonInit(){
+        columnTitleLabel = UILabel().added(to: contentView)
+        columnTitleLabel.font = UIFont.systemFont(ofSize: 14)
+        columnTitleLabel.numberOfLines = 2
+        readCountLabel = UILabel.title().added(to: contentView)
+        prefixLabel = UILabel().added(to: contentView)
+        prefixLabel.textColor = UIColor.theme
+        prefixLabel.font = UIFont.systemFont(ofSize: 10)
         prefixLabel.layer.borderColor = UIColor.theme.cgColor
         prefixLabel.textColor = UIColor.theme
         prefixLabel.layer.borderWidth = 0.5
+        prefixLabel.text = "专栏"
+        avatarImageView = UIImageView().added(to: self)
     }
     override func render(with row: RowConvertable) {
         guard let _row = row as? ColumnistItemRow else{
@@ -33,17 +47,16 @@ class ColumnistItemCell: MDTableViewCell {
         columnTitleLabel.text = _row.title
         avatarImageView.asyncSetImage(_row.avatar)
         readCountLabel.text = _row.readCount
-        relayout(with: _row.style)
     }
-    func relayout(with style:ColumnistItemCellStyle){
-        switch style {
-        case .full:
-            self.bottomConstraint.constant = 0
-            self.topConstraints.constant = 0
-        case .topPadding:
-            self.topConstraints.constant = 5.0
-            self.bottomConstraint.constant = -5.0
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let avatarHeight = self.frame.height
+        let avatarWidth = avatarHeight / 146.0 * 246.0
+        avatarImageView.frame = CGRect(x: self.frame.width - avatarWidth, y: 0, width: avatarWidth, height: avatarHeight)
+        columnTitleLabel.frame = CGRect(x:8.0 , y: 8.0, width: self.frame.width - 8.0 - 8.0 - avatarWidth, height: 34.0)
+        readCountLabel.frame = CGRect(x: 8.0, y: columnTitleLabel.maxY + 4.0, width: columnTitleLabel.frame.width, height: 15.0)
+        prefixLabel.sizeToFit()
+        prefixLabel.frame = CGRect(x: columnTitleLabel.x, y: columnTitleLabel.y + 2.0, width: prefixLabel.frame.width, height: prefixLabel.frame.height)
     }
 }
 
@@ -68,7 +81,7 @@ class ColumnistItemRow:ReactiveRow{
         super.init()
         self.rowHeight = UIScreen.main.bounds.width / 320.0 * 75.0
         self.reuseIdentifier = "ColumnistItemRow"
-        self.initalType = .xib(xibName: "ColumnistItemCell")
+        self.initalType = .code(className: ColumnistItemCell.self)
     }
 }
 

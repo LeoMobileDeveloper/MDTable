@@ -84,3 +84,62 @@ extension UIImageView{
         }
     }
 }
+
+extension UIView{
+    var x:CGFloat{
+        get{
+            return self.frame.origin.x
+        }
+        set{
+            var frame = self.frame
+            frame.origin.x = newValue
+            self.frame = frame
+        }
+    }
+    var y:CGFloat{
+        get{
+            return self.frame.origin.y
+        }
+        set{
+            var frame = self.frame
+            frame.origin.y = newValue
+            self.frame = frame
+        }
+    }
+    
+    var maxX:CGFloat{
+        get{
+            return self.frame.origin.x + self.frame.width
+        }
+    }
+    
+    var maxY:CGFloat{
+        get{
+            return self.frame.origin.y + self.frame.height
+        }
+    }
+    func added(to superView:UIView)->Self{
+        superView.addSubview(self)
+        return self
+    }
+}
+
+
+
+extension UILabel{
+    static func title()->UILabel{
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
+        label.textAlignment = .left
+        return label
+    }
+    
+    static func subTitle()->UILabel{
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor(red: 85.0 / 255.0, green: 85.0 / 255.0, blue: 85.0 / 255.0, alpha: 1.0)
+        label.textAlignment = .left
+        return label
+    }
+}

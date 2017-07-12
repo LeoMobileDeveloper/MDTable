@@ -37,22 +37,15 @@ struct NMMVConst {
 }
 
 
-class NMMVCell: MDTableViewCell,UICollectionViewDelegate,UICollectionViewDataSource{
-    var collectionView:UICollectionView!
+class NMMVCell: MDTableViewCell{
+    var itemViews:[MVItemView] = []
     weak var row:NMMVRow?
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: NMMVConst.itemWidth, height: NMMVConst.itemHeight)
-        flowLayout.minimumInteritemSpacing = 0
-        collectionView = UICollectionView(frame: contentView.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = UIColor.white
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.isScrollEnabled = false
-        contentView.addSubview(collectionView)
-        let nib = UINib(nibName: "MVCollectionCell", bundle: Bundle.main)
-        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        for _ in 0..<4{
+            let itemView = MVItemView(frame: CGRect.zero).added(to:contentView)
+            itemViews.append(itemView)
+        }
     }
     override func render(with row: RowConvertable) {
         guard let _row = row as? NMMVRow else {
@@ -60,31 +53,37 @@ class NMMVCell: MDTableViewCell,UICollectionViewDelegate,UICollectionViewDataSou
         }
         self.row = _row
         if _row.isDirty{
-            self.collectionView.reloadData()
             _row.isDirty = false
+            reloadData()
+        }
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        var x:CGFloat = 0.0
+        var y:CGFloat = 0.0
+        for i in 0..<itemViews.count{
+            if i == 2{
+                x = 0.0
+                y = NMMVConst.itemHeight
+            }
+            let itemView = itemViews[i]
+            itemView.frame = CGRect(x: x, y: y, width:NMMVConst.itemWidth, height: NMMVConst.itemHeight)
+            x = x + itemView.frame.width + 4.0
+        }
+        
+    }
+    func reloadData(){
+        guard let row = self.row else{
+            return
+        }
+        for i in 0..<row.mvs.count{
+            let mv = row.mvs[i]
+            let itemView = itemViews[i]
+            itemView.config(mv)
         }
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        collectionView.frame = contentView.bounds
-    }
-    // MARK: - CollectionView DataSource and Delegate
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.row?.mvs.count ?? 0
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MVCollectionCell
-        if let recommend = self.row?.mvs[indexPath.item]{
-            cell.config(recommend)
-        }
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        
     }
 }
 

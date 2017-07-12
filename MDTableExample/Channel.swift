@@ -47,23 +47,16 @@ struct NMChannelConst {
     }
 }
 
-class NMChannelCell: MDTableViewCell,UICollectionViewDataSource,UICollectionViewDelegate {
-    var collectionView:UICollectionView!
+class NMChannelCell: MDTableViewCell {
     weak var row:NMChannelRow?
+    var itemViews:[ChannelItemView] = []
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.itemSize = CGSize(width: NMChannelConst.itemWidth, height: NMChannelConst.itemHeight)
-        flowLayout.minimumInteritemSpacing = 0
-        collectionView = UICollectionView(frame: contentView.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = UIColor.white
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.isScrollEnabled = false
-        contentView.addSubview(collectionView)
-        let nib = UINib(nibName: "ChannelCollectionCell", bundle: Bundle.main)
-        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        for _ in 0..<6{
+            let itemView = ChannelItemView(frame: CGRect.zero).added(to:contentView)
+            itemViews.append(itemView)
+        }
     }
     override func render(with row: RowConvertable) {
         guard let _row = row as? NMChannelRow else {
@@ -72,7 +65,7 @@ class NMChannelCell: MDTableViewCell,UICollectionViewDataSource,UICollectionView
         self.row = _row
         if _row.isDirty{
             _row.isDirty = false
-            //self.collectionView.reloadData()
+            reloadData()
         }
     }
     required init?(coder aDecoder: NSCoder) {
@@ -80,22 +73,28 @@ class NMChannelCell: MDTableViewCell,UICollectionViewDataSource,UICollectionView
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        collectionView.frame = contentView.bounds
-    }
-    // MARK: - CollectionView DataSource and Delegate
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.row?.channels.count ?? 0
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChannelCollectionCell
-        if let channel = self.row?.channels[indexPath.item]{
-            cell.config(channel)
+        var x:CGFloat = 0.0
+        var y:CGFloat = 0.0
+        for i in 0..<itemViews.count{
+            if i == 3{
+                x = 0.0
+                y = NMChannelConst.itemHeight
+            }
+            let itemView = itemViews[i]
+            itemView.frame = CGRect(x: x, y: y, width:NMChannelConst.itemWidth, height: NMChannelConst.itemHeight)
+            x = x + itemView.frame.width + 4.0
         }
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
         
+    }
+    func reloadData(){
+        guard let row = self.row else{
+            return
+        }
+        for i in 0..<row.channels.count{
+            let chanel = row.channels[i]
+            let itemView = itemViews[i]
+            itemView.config(chanel)
+        }
     }
 }
 
