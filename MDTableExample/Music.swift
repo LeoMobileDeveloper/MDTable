@@ -16,7 +16,7 @@ class NMLatestMusicRow:ReactiveRow {
     init(musics:[NMLatestMusic]){
         self.musics = musics
         super.init()
-        self.rowHeight = NMMusicConst.itemHeight * 2.0
+        self.rowHeight = NMMusicConst.itemHeight * 2.0 + 15.0
         self.reuseIdentifier = "NMMusicRow"
         self.shouldHighlight = false
         self.initalType = .code(className: NMMusicCell.self)
@@ -31,7 +31,7 @@ struct NMMusicConst {
     }
     static var itemHeight:CGFloat{
         get{
-            return NMMusicConst.itemWidth + 40.0
+            return NMMusicConst.itemWidth + 45.0
         }
     }
 }
@@ -86,7 +86,10 @@ class NMMusicCell: MDTableViewCell {
     }
 }
 
-class LatestMusicSection: Section{
+class LatestMusicSection: Section,SortableSection{
+    var sortTitle: String = "最新音乐"
+    var defaultSequeue: Int = 3
+    var sequence: Int = 3
     static var mockSection:LatestMusicSection{
         get{
             let musicTitleRow = NMColumnTitleRow(title: "最新音乐")

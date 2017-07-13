@@ -98,7 +98,10 @@ class NMChannelCell: MDTableViewCell {
     }
 }
 
-class ChannelSection: Section{
+class ChannelSection: Section, SortableSection{
+    var sortTitle: String = "主播电台"
+    var defaultSequeue: Int = 6
+    var sequence: Int = 6
     static var mockSection:ChannelSection{
         get{
             let channelTitleRow = NMColumnTitleRow(title: "主播电台")

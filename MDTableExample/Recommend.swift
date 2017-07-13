@@ -86,7 +86,10 @@ class NMRecommendCell: MDTableViewCell,UICollectionViewDataSource,UICollectionVi
     }
 }
 
-class RecommendSection:Section{
+class RecommendSection:Section,SortableSection{
+    var sortTitle: String = "推荐歌单"
+    var defaultSequeue: Int = 1
+    var sequence: Int = 1
     static var mockSection:RecommendSection{
         get{
             let recommendTitleRow = NMColumnTitleRow(title: "推荐歌单")

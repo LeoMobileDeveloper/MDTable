@@ -111,8 +111,11 @@ class NMExclusiveCell:MDTableViewCell{
    
 }
 
-class ExclusiveSection: Section{
-    static var mockSection: Section {
+class ExclusiveSection: Section,SortableSection{
+    var sortTitle: String = "独家放送"
+    var defaultSequeue: Int = 2
+    var sequence: Int = 2
+    static var mockSection: ExclusiveSection {
         get{
             let exclusiveTitleRow = NMColumnTitleRow(title: "独家放送")
             let images = (1...3).map{"exclusive_\($0).jpeg"}.map{ UIImage(named: $0)!}
@@ -122,7 +125,7 @@ class ExclusiveSection: Section{
                             ]
             let exclusives =  zip(images, describe).map { NMExclusive(avatar: $0.0, describe: $0.1)}
             let exclusiveRow = NMExclusiveRow(exclusives: exclusives)
-            let exclusiveSection = Section(rows: [exclusiveTitleRow,exclusiveRow])
+            let exclusiveSection = ExclusiveSection(rows: [exclusiveTitleRow,exclusiveRow])
             return exclusiveSection
         }
     }

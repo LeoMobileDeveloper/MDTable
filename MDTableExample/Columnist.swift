@@ -65,7 +65,10 @@ class NeteaseColumnlistCell: MDTableViewCell{
     }
 }
 
-class NeteaseColumnlistSection: Section {
+class NeteaseColumnlistSection: Section,SortableSection {
+    var sortTitle: String = "精选专栏"
+    var defaultSequeue: Int = 5
+    var sequence: Int = 5
     static var mockSection:NeteaseColumnlistSection{
         get{
             let exclusiveTitleRow = NMColumnTitleRow(title: "精选专栏")

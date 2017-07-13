@@ -11,6 +11,9 @@
 		B3127DF01F0A42960048413C /* MDTable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B37C55D81EF26D160069FEB3 /* MDTable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B318D38A1F0FD68C00876CC6 /* MVItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B318D3891F0FD68C00876CC6 /* MVItemView.swift */; };
 		B318D38E1F134B4800876CC6 /* ColumnistItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B318D38C1F134B4800876CC6 /* ColumnistItemCell.swift */; };
+		B31D5C121F17733500F5E519 /* NeteaseCloudMusicSortController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31D5C111F17733500F5E519 /* NeteaseCloudMusicSortController.swift */; };
+		B31D5C141F17736E00F5E519 /* SortableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31D5C131F17736E00F5E519 /* SortableSection.swift */; };
+		B31D5C181F17828B00F5E519 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31D5C171F17828B00F5E519 /* BaseNavigationController.swift */; };
 		B31F34E41EF27104005FA5E8 /* SystemCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31F34E31EF27104005FA5E8 /* SystemCellController.swift */; };
 		B31F34EC1EF271CA005FA5E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31F34E81EF27145005FA5E8 /* LaunchScreen.storyboard */; };
 		B31F34ED1EF271CA005FA5E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31F34EA1EF27145005FA5E8 /* Main.storyboard */; };
@@ -83,6 +86,9 @@
 /* Begin PBXFileReference section */
 		B318D3891F0FD68C00876CC6 /* MVItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVItemView.swift; sourceTree = "<group>"; };
 		B318D38C1F134B4800876CC6 /* ColumnistItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnistItemCell.swift; sourceTree = "<group>"; };
+		B31D5C111F17733500F5E519 /* NeteaseCloudMusicSortController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeteaseCloudMusicSortController.swift; sourceTree = "<group>"; };
+		B31D5C131F17736E00F5E519 /* SortableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortableSection.swift; sourceTree = "<group>"; };
+		B31D5C171F17828B00F5E519 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B31F34E31EF27104005FA5E8 /* SystemCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCellController.swift; sourceTree = "<group>"; };
 		B31F34E91EF27145005FA5E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B31F34EB1EF27145005FA5E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -146,13 +152,14 @@
 			name = "Dynamic Height";
 			sourceTree = "<group>";
 		};
-		B3376E6C1EF3B29A0003F154 /* NeteaseMusic */ = {
+		B3376E6C1EF3B29A0003F154 /* 网易云音乐 */ = {
 			isa = PBXGroup;
 			children = (
 				B3D7B9D61F0BA9C100144FD1 /* Cells */,
 				B3ADD0F21EF4FF74007A1880 /* NeteaseCloudMusicController.swift */,
+				B31D5C111F17733500F5E519 /* NeteaseCloudMusicSortController.swift */,
 			);
-			name = NeteaseMusic;
+			name = "网易云音乐";
 			sourceTree = "<group>";
 		};
 		B3376E6D1EF3B29E0003F154 /* Edit */ = {
@@ -224,7 +231,7 @@
 				B3E582541EF2DA9B00314AB3 /* System */,
 				B3E582531EF2DA9400314AB3 /* Custom Cell With XIB */,
 				B3376E6B1EF3B2840003F154 /* Dynamic Height */,
-				B3376E6C1EF3B29A0003F154 /* NeteaseMusic */,
+				B3376E6C1EF3B29A0003F154 /* 网易云音乐 */,
 				B3376E6E1EF3B2B80003F154 /* Reorder */,
 				B3376E6D1EF3B29E0003F154 /* Edit */,
 				B3376E711EF3B2E00003F154 /* Index Title */,
@@ -245,6 +252,7 @@
 			children = (
 				B3D7B9CE1F0BA48600144FD1 /* ParallexBanner.swift */,
 				B3B3C5C61F0E08E100A2F45E /* Extension.swift */,
+				B31D5C171F17828B00F5E519 /* BaseNavigationController.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -265,6 +273,7 @@
 				B367B08D1F0F70AA008B66D9 /* Channel.swift */,
 				B3C776D61F14801500FE1F60 /* Music.swift */,
 				B3C776D31F1476FB00FE1F60 /* Footer.swift */,
+				B31D5C131F17736E00F5E519 /* SortableSection.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -387,14 +396,17 @@
 				B3D7B9D31F0BA97F00144FD1 /* Menu.swift in Sources */,
 				B3376E731EF3B3180003F154 /* DynamicHeightCell.swift in Sources */,
 				B3ADD0EF1EF4F617007A1880 /* SectionIndexTitleController.swift in Sources */,
+				B31D5C141F17736E00F5E519 /* SortableSection.swift in Sources */,
 				B3ADD0ED1EF4DAE0007A1880 /* ReorderTableViewController.swift in Sources */,
 				B38D4DA91EF26C28009A6D15 /* MainTableViewController.swift in Sources */,
 				B367B0901F0F71B0008B66D9 /* ExclusiveItemView.swift in Sources */,
 				B367B08A1F0F705D008B66D9 /* MV.swift in Sources */,
 				B367B0761F0F360F008B66D9 /* MusicSheetCollectionCell.swift in Sources */,
+				B31D5C121F17733500F5E519 /* NeteaseCloudMusicSortController.swift in Sources */,
 				B3C776D11F146F0E00FE1F60 /* MusicItemView.swift in Sources */,
 				B3E582521EF2DA3B00314AB3 /* CustomCellWithXibController.swift in Sources */,
 				B3ABBFB01F136E6C0041BCE4 /* ChannelItemView.swift in Sources */,
+				B31D5C181F17828B00F5E519 /* BaseNavigationController.swift in Sources */,
 				B318D38A1F0FD68C00876CC6 /* MVItemView.swift in Sources */,
 				B367B0841F0F5F98008B66D9 /* Recommend.swift in Sources */,
 				B3B3C5C71F0E08E100A2F45E /* Extension.swift in Sources */,

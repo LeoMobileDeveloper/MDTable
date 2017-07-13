@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Example-->
+        <!--Demo-->
         <scene sceneID="EmK-7j-6JK">
             <objects>
                 <tableViewController id="mbH-6b-1TG" customClass="MainTableViewController" customModule="MDTableExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,16 +22,16 @@
                             <outlet property="delegate" destination="mbH-6b-1TG" id="iHP-qo-6bp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Example" id="xkq-nA-jkW"/>
+                    <navigationItem key="navigationItem" title="Demo" id="xkq-nA-jkW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaA-ah-En2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="831.20000000000005" y="173.16341829085459"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="Cap-cs-NlI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K8p-FN-1sn" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K8p-FN-1sn" customClass="BaseNavigationController" customModule="MDTableExample" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hmD-It-ZsF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

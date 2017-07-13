@@ -143,3 +143,15 @@ extension UILabel{
         return label
     }
 }
+
+extension UIButton{
+    func setBackgroundColor(_ color: UIColor, for state: UIControlState){
+        let rect = CGRect(x: 0, y: 0, width: 1000, height: 1000)
+        UIGraphicsBeginImageContext(rect.size)
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.setFillColor(color.cgColor)
+        ctx?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        self.setImage(image, for: state)
+    }
+}

@@ -64,6 +64,5 @@ class MainTableViewController: UITableViewController {
 
         tableView.manager = TableManager(sections: [section0,section1])
     }
-
 }
 

@@ -33,7 +33,7 @@ class MusicItemView: UIView {
         avatarImageView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.width)
         coverImageView.frame = avatarImageView.frame
         titleLabel.frame = CGRect(x: 4.0, y: avatarImageView.maxY + 4.0, width: self.frame.width - 8.0, height: 15.0)
-        subTitleLabel.frame = CGRect(x: 4.0, y: titleLabel.maxY + 4.0, width: self.frame.width - 8.0, height: 15.0)
+        subTitleLabel.frame = CGRect(x: 4.0, y: titleLabel.maxY + 2.0, width: self.frame.width - 8.0, height: 15.0)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

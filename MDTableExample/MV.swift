@@ -87,7 +87,10 @@ class NMMVCell: MDTableViewCell{
     }
 }
 
-class NMMVSection : Section{
+class NMMVSection : Section,SortableSection{
+    var sortTitle: String = "推荐MV"
+    var defaultSequeue: Int = 4
+    var sequence: Int = 4
     static var mockSection: NMMVSection{
         get{
             let exclusiveTitleRow = NMColumnTitleRow(title: "推荐MV")
