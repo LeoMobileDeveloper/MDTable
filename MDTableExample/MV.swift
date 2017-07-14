@@ -88,6 +88,7 @@ class NMMVCell: MDTableViewCell{
 }
 
 class NMMVSection : Section,SortableSection{
+    var identifier: String = "NMMVSection"
     var sortTitle: String = "推荐MV"
     var defaultSequeue: Int = 4
     var sequence: Int = 4

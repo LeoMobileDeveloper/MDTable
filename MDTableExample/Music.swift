@@ -87,6 +87,8 @@ class NMMusicCell: MDTableViewCell {
 }
 
 class LatestMusicSection: Section,SortableSection{
+    
+    var identifier: String = "LatestMusicSection"
     var sortTitle: String = "最新音乐"
     var defaultSequeue: Int = 3
     var sequence: Int = 3

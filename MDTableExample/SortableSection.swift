@@ -10,6 +10,7 @@ import Foundation
 
 protocol SortableSection {
     var sortTitle: String {get set}
-    var sequence: Int {get}
+    var sequence: Int {get set}
     var defaultSequeue:Int {get}
+    var identifier: String {get}
 }

@@ -112,6 +112,7 @@ class NMExclusiveCell:MDTableViewCell{
 }
 
 class ExclusiveSection: Section,SortableSection{
+    var identifier: String = "ExclusiveSection"
     var sortTitle: String = "独家放送"
     var defaultSequeue: Int = 2
     var sequence: Int = 2

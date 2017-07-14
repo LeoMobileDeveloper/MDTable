@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ChannelItemView:UIView{
+class ChannelItemView:AvatarItemView{
     
     var coverImageview: UIImageView!
     var podcasterNameLabel: UILabel!
-    var avatarImageView: UIImageView!
     var describeLabel: UILabel!
     func config(_ channel:NMChannel){
         podcasterNameLabel.text = channel.podcasterName
@@ -24,7 +23,6 @@ class ChannelItemView:UIView{
         commonInit()
     }
     func commonInit(){
-        avatarImageView = UIImageView().added(to: self)
         coverImageview = UIImageView().added(to: self)
         describeLabel = UILabel.title().added(to: self)
         describeLabel.numberOfLines = 2

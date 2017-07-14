@@ -36,22 +36,18 @@ struct NMRecommendConst {
     }
 }
 
-class NMRecommendCell: MDTableViewCell,UICollectionViewDataSource,UICollectionViewDelegate {
-    var collectionView:UICollectionView!
+class NMRecommendCell: MDTableViewCell {
     weak var row:NMRecommendRow?
+    var itemViews:[RecommendItemView] = []
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: NMRecommendConst.itemWidth, height: NMRecommendConst.itemHeight)
-        flowLayout.minimumInteritemSpacing = 0
-        collectionView = UICollectionView(frame: contentView.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = UIColor.white
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.isScrollEnabled = false
-        contentView.addSubview(collectionView)
-        collectionView.register(MusicSheetCollectionCell.self, forCellWithReuseIdentifier: "cell")
+        for _ in 0..<6{
+            let itemView = RecommendItemView(frame: CGRect.zero).added(to:contentView)
+            itemViews.append(itemView)
+        }
     }
+    
     override func render(with row: RowConvertable) {
         guard let _row = row as? NMRecommendRow else {
             return;
@@ -59,7 +55,7 @@ class NMRecommendCell: MDTableViewCell,UICollectionViewDataSource,UICollectionVi
         self.row = _row
         if _row.isDirty{
             _row.isDirty = false
-            //self.collectionView.reloadData()
+            reloadData()
         }
     }
     required init?(coder aDecoder: NSCoder) {
@@ -67,26 +63,34 @@ class NMRecommendCell: MDTableViewCell,UICollectionViewDataSource,UICollectionVi
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        collectionView.frame = contentView.bounds
-    }
-    // MARK: - CollectionView DataSource and Delegate
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.row?.recommends.count ?? 6
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MusicSheetCollectionCell
-        if let recommend = self.row?.recommends[indexPath.item]{
-            cell.config(recommend)
+        var x:CGFloat = 0.0
+        var y:CGFloat = 0.0
+        for i in 0..<itemViews.count{
+            if i == 3{
+                x = 0.0
+                y = NMRecommendConst.itemHeight
+            }
+            let itemView = itemViews[i]
+            itemView.frame = CGRect(x: x, y: y, width:NMRecommendConst.itemWidth, height: NMRecommendConst.itemHeight)
+            x = x + itemView.frame.width + 4.0
         }
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
         
     }
+    func reloadData(){
+        guard let row = self.row else{
+            return
+        }
+        for i in 0..<row.recommends.count{
+            let recommend = row.recommends[i]
+            let itemView = itemViews[i]
+            itemView.config(recommend)
+        }
+    }
+
 }
 
 class RecommendSection:Section,SortableSection{
+    var identifier: String = "RecommendSection"
     var sortTitle: String = "推荐歌单"
     var defaultSequeue: Int = 1
     var sequence: Int = 1

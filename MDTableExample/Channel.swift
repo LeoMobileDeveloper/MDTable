@@ -99,6 +99,7 @@ class NMChannelCell: MDTableViewCell {
 }
 
 class ChannelSection: Section, SortableSection{
+    var identifier: String = "ChannelSection"
     var sortTitle: String = "主播电台"
     var defaultSequeue: Int = 6
     var sequence: Int = 6

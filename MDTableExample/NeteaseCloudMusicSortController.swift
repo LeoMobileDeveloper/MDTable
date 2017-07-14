@@ -19,6 +19,8 @@ class SortHeaderView: UIView{
         titleLabel.text = "想调整首页栏目的顺序?按住右边的按钮拖动即可"
         separatorView = UIView().added(to: self)
         separatorView.backgroundColor = UIColor.groupTableViewBackground
+        imageView = UIImageView().added(to: self)
+        imageView.image = UIImage(named: "cm2_icn_light")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,13 +30,18 @@ class SortHeaderView: UIView{
         super.layoutSubviews()
         titleLabel.frame = CGRect(x: 20.0, y: 0, width: self.frame.width - 20.0, height: self.frame.height)
         separatorView.frame = CGRect(x: 0, y: self.frame.height - 1.0, width: self.frame.width, height: 1.0)
+        let imageSize = CGSize(width: 9.0, height: 13.0)
+        imageView.frame = CGRect(x: 8.0, y: self.frame.height / 2.0 - imageSize.height / 2.0, width: imageSize.width, height: imageSize.height)
     }
 }
 
 class SortFooterView: UIView{
-    
+
 }
 
+protocol NeteaseCloudMusicSortControllerDelegate {
+    func didFinishReorder(with sections:SortableSection)
+}
 class NeteaseCloudMusicSortController: UITableViewController {
     var sections:[SortableSection]
     let editor = TableEditor()
@@ -50,16 +57,27 @@ class NeteaseCloudMusicSortController: UITableViewController {
         navigationItem.title = "调整栏目顺序"
         let doneItem = UIBarButtonItem(title: "完成", style: .done, target: self, action: #selector(NeteaseCloudMusicSortController.handleItemClicked(_:)))
         navigationItem.rightBarButtonItem = doneItem
-
+        //Table
+        tableView.tableHeaderView = SortHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40.0))
         tableView.setEditing(true, animated: false)
         tableView.separatorColor = UIColor.groupTableViewBackground
+       
+        //Manager
         let rows = sections.map{ ReorderRow(title: $0.sortTitle)}
         let section = Section(rows: rows)
         tableView.manager = TableManager(sections: [section], editor: editor)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        
-        //Header
-        tableView.tableHeaderView = SortHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40.0))
+        editor.moveRowAtSourceIndexPathToDestinationIndexPath = { tableView, fromIndexpath, toIndexPath in
+            guard let manager = tableView.manager else{
+                return
+            }
+            var fromSection  = self.sections[fromIndexpath.row]
+            var toSection = self.sections[toIndexPath.row]
+            let temp = fromSection.sequence
+            fromSection.sequence = toSection.sequence
+            toSection.sequence = temp
+            tableView.manager?.exchange(fromIndexpath, with: toIndexPath)
+        }
     }
     func handleItemClicked(_ sender: UIBarButtonItem){
         dismiss(animated: true, completion: nil)

@@ -12,8 +12,7 @@ enum MusicCollectionCellStyle {
     case normal
     case slogen
 }
-class MusicItemView: UIView {
-    var avatarImageView: UIImageView!
+class MusicItemView: AvatarItemView {
     var titleLabel: UILabel!
     var subTitleLabel: UILabel!
     var coverImageView: UIImageView!
@@ -23,7 +22,6 @@ class MusicItemView: UIView {
         commonInit()
     }
     func commonInit(){
-        avatarImageView = UIImageView(frame: CGRect.zero).added(to: self)
         coverImageView  = UIImageView(frame: CGRect.zero).added(to: self)
         titleLabel = UILabel.title().added(to: self)
         subTitleLabel = UILabel.subTitle().added(to: self)

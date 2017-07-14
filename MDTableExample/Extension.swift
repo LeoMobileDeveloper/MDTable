@@ -85,6 +85,17 @@ extension UIImageView{
     }
 }
 
+extension UIButton{
+    func asyncSetImage(_ image:UIImage,for state:UIControlState){
+        DispatchQueue.global(qos: .userInteractive).async {
+            let decodeImage = image.decodedImage()
+            DispatchQueue.main.async {
+                self.setImage(decodeImage, for: state)
+            }
+        }
+    }
+}
+
 extension UIView{
     var x:CGFloat{
         get{
@@ -154,4 +165,5 @@ extension UIButton{
         let image = UIGraphicsGetImageFromCurrentImageContext()
         self.setImage(image, for: state)
     }
+    
 }

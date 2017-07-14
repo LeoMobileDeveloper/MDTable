@@ -66,6 +66,7 @@ class NeteaseColumnlistCell: MDTableViewCell{
 }
 
 class NeteaseColumnlistSection: Section,SortableSection {
+    var identifier: String = "NeteaseColumnlistSection"
     var sortTitle: String = "精选专栏"
     var defaultSequeue: Int = 5
     var sequence: Int = 5
