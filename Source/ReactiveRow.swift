@@ -13,14 +13,12 @@ open class ReactiveRow : RowConvertable{
     open var rowHeight:CGFloat
     open var reuseIdentifier: String
     open var initalType:RowConvertableInitalType
-    open var estimatedHeight:CGFloat
     open var indentationLevel: Int
     open var shouldHighlight: Bool
     public init(){
         self.rowHeight = 44.0
         self.reuseIdentifier = "Row"
         self.initalType = .code(className: MDTableViewCell.self)
-        self.estimatedHeight = self.rowHeight
         self.indentationLevel = 0
         self.shouldHighlight = true
     }

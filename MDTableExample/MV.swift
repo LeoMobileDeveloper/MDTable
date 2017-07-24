@@ -77,9 +77,11 @@ class NMMVCell: MDTableViewCell{
             return
         }
         for i in 0..<row.mvs.count{
-            let mv = row.mvs[i]
-            let itemView = itemViews[i]
-            itemView.config(mv)
+            TaskDispatcher.shared.add("mv\(i)", {
+                let mv = row.mvs[i]
+                let itemView = self.itemViews[i]
+                itemView.config(mv)
+            })
         }
     }
     required init?(coder aDecoder: NSCoder) {

@@ -45,7 +45,7 @@ extension RowConvertable{
     }
 
     public var estimatedHeight:CGFloat{
-        return UITableViewAutomaticDimension
+        return self.rowHeight
     }
     public var cellForRowAt:(UITableView, IndexPath) -> UITableViewCell{
         return { (tableView, indexPath) in

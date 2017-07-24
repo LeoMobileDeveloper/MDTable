@@ -91,9 +91,11 @@ class NMChannelCell: MDTableViewCell {
             return
         }
         for i in 0..<row.channels.count{
-            let chanel = row.channels[i]
-            let itemView = itemViews[i]
-            itemView.config(chanel)
+            TaskDispatcher.shared.add("NMChannelCell\(i)") {
+                let chanel = row.channels[i]
+                let itemView = self.itemViews[i]
+                itemView.config(chanel)
+            }
         }
     }
 }

@@ -55,13 +55,15 @@ class NeteaseColumnlistCell: MDTableViewCell{
         guard let row = self.row else {
             return
         }
-        var subTableRows = [ColumnistItemRow]()
-        row.columnists.enumerated().forEach { (columnist: (offset: Int, element: Columnist)) in
-            let style:ColumnistItemCellStyle = columnist.offset == 0 ? .full : .topPadding
-            subTableRows.append(ColumnistItemRow(item: columnist.element, style:style))
+        TaskDispatcher.shared.add("NeteaseColumnlist") {
+            var subTableRows = [ColumnistItemRow]()
+            row.columnists.enumerated().forEach { (columnist: (offset: Int, element: Columnist)) in
+                let style:ColumnistItemCellStyle = columnist.offset == 0 ? .full : .topPadding
+                subTableRows.append(ColumnistItemRow(item: columnist.element, style:style))
+            }
+            self.section.rows = subTableRows
+            self.tableView.manager?.reloadData()
         }
-        section.rows = subTableRows
-        tableView.manager?.reloadData()
     }
 }
 

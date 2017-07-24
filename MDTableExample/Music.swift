@@ -78,10 +78,12 @@ class NMMusicCell: MDTableViewCell {
             return
         }
         for i in 0..<row.musics.count{
-            let style:MusicCollectionCellStyle = i == 0 ? .slogen : .normal;
-            let music = row.musics[i]
-            let itemView = itemViews[i]
-            itemView.config(music, style: style)
+            TaskDispatcher.shared.add("Music\(i)") {
+                let style:MusicCollectionCellStyle = i == 0 ? .slogen : .normal;
+                let music = row.musics[i]
+                let itemView = self.itemViews[i]
+                itemView.config(music, style: style)
+            }
         }
     }
 }

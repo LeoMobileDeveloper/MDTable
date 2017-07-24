@@ -11,9 +11,9 @@ import UIKit
 
 struct SectionConst{
     static let defaultHeightForHeader:CGFloat = 0.0
-    static let defaultEstimatedHeightForHeader:CGFloat = 30.0
+    static let defaultEstimatedHeightForHeader:CGFloat = 0.0
     static let defaultHeightForFooter:CGFloat = 0.0
-    static let defaultEstimatedHeightForFooter:CGFloat = 30.0
+    static let defaultEstimatedHeightForFooter:CGFloat = 0.0
 }
 
 open class ReactiveSection:SectionConvertable{

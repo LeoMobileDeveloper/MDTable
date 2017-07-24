@@ -102,10 +102,12 @@ class NMExclusiveCell:MDTableViewCell{
             return
         }
         for i in 0..<row.exclusives.count{
-            let exclusive = row.exclusives[i]
-            let itemView = itemViews[i]
-            let style = i == 2 ? ExclusiveStyle.fullScreen : ExclusiveStyle.halfScreen
-            itemView.config(exclusive, style: style)
+            TaskDispatcher.shared.add("NMExclusiveCell\(i)") {
+                let exclusive = row.exclusives[i]
+                let itemView = self.itemViews[i]
+                let style = i == 2 ? ExclusiveStyle.fullScreen : ExclusiveStyle.halfScreen
+                itemView.config(exclusive, style: style)
+            }
         }
     }
    
