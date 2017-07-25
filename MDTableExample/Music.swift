@@ -78,7 +78,7 @@ class NMMusicCell: MDTableViewCell {
             return
         }
         for i in 0..<row.musics.count{
-            TaskDispatcher.shared.add("Music\(i)") {
+            TaskDispatcher.common.add("Music\(i)") {
                 let style:MusicCollectionCellStyle = i == 0 ? .slogen : .normal;
                 let music = row.musics[i]
                 let itemView = self.itemViews[i]
@@ -112,5 +112,9 @@ class LatestMusicSection: Section,SortableSection{
     }
 }
 
-
+extension LatestMusicSection: PreloadableSection{
+    var preloadRows:[RowConvertable]{
+        return [NMLatestMusicRow(musics: [])]
+    }
+}
 

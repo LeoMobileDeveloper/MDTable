@@ -20,13 +20,20 @@ class Task{
         _task()
     }
 }
+enum TaskExecuteMode {
+    case `default` //Stop execute during scroll
+    case common
+}
 /// Dispatch Task to runloop, only one task will be executed in one runloop，use this class to handle perofrm issue
 public class TaskDispatcher{
-    public static let shared:TaskDispatcher = TaskDispatcher()
+    public static let common = TaskDispatcher(mode: .common)
+    public static let `default` = TaskDispatcher(mode: .default)
     var observer:CFRunLoopObserver?
     var tasks = [String:Task]()
     var taskKeys = [String]()
-    init() {
+    let mode:TaskExecuteMode
+    init(mode:TaskExecuteMode) {
+        self.mode = mode
         self.register()
     }
     public func add(_ identifier:String, _ block:@escaping (Void)->Void){

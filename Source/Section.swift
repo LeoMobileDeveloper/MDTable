@@ -105,3 +105,7 @@ open class Section:ReactiveSection{
         self.rows = rows
     }
 }
+
+public protocol PreloadableSection {
+    var preloadRows:[RowConvertable]{get}
+}

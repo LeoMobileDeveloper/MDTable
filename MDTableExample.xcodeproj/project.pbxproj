@@ -51,6 +51,7 @@
 		B3E582501EF2D91C00314AB3 /* CusomCellWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E5824E1EF2D91C00314AB3 /* CusomCellWithXib.xib */; };
 		B3E582521EF2DA3B00314AB3 /* CustomCellWithXibController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E582511EF2DA3B00314AB3 /* CustomCellWithXibController.swift */; };
 		B3E582561EF2DADF00314AB3 /* XibRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E582551EF2DADF00314AB3 /* XibRow.swift */; };
+		B3FB04611F26F2DB0080367B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FB04601F26F2DB0080367B /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		B3E5824E1EF2D91C00314AB3 /* CusomCellWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CusomCellWithXib.xib; sourceTree = "<group>"; };
 		B3E582511EF2DA3B00314AB3 /* CustomCellWithXibController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellWithXibController.swift; sourceTree = "<group>"; };
 		B3E582551EF2DADF00314AB3 /* XibRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibRow.swift; sourceTree = "<group>"; };
+		B3FB04601F26F2DB0080367B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FB04611F26F2DB0080367B /* UIKit.framework in Frameworks */,
 				B3127DEF1F0A42960048413C /* MDTable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +218,7 @@
 			children = (
 				B37C55D31EF26D160069FEB3 /* MDTable.xcodeproj */,
 				B38D4D801EF26B46009A6D15 /* MDTableExample */,
+				B3FB045F1F26F2DB0080367B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -298,6 +302,14 @@
 				B31F34E31EF27104005FA5E8 /* SystemCellController.swift */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		B3FB045F1F26F2DB0080367B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3FB04601F26F2DB0080367B /* UIKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

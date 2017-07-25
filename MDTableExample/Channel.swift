@@ -91,7 +91,7 @@ class NMChannelCell: MDTableViewCell {
             return
         }
         for i in 0..<row.channels.count{
-            TaskDispatcher.shared.add("NMChannelCell\(i)") {
+            TaskDispatcher.common.add("NMChannelCell\(i)") {
                 let chanel = row.channels[i]
                 let itemView = self.itemViews[i]
                 itemView.config(chanel)
@@ -123,4 +123,9 @@ class ChannelSection: Section, SortableSection{
     }
 }
 
+extension ChannelSection: PreloadableSection{
+    var preloadRows:[RowConvertable]{
+        return [NMChannelRow(channels: [])]
+    }
+}
 

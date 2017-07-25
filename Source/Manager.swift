@@ -19,6 +19,7 @@ public class TableManager{
     private let lock = NSRecursiveLock()
     var sectionIndexTitles:[String] = []
     var sectionIndexMap:[Int:Int] = [:]//Map index in sectionIndexTitles to section
+    public lazy var preloader:TablePreloader = TablePreloader()
     public init(sections:[SectionConvertable],
                 delegate:TableDelegate = TableDelegate(),
                 editor:Editor? = nil
@@ -44,6 +45,16 @@ public class TableManager{
         self.tableView = tableView
         tableView.delegate = self.delegate
         tableView.dataSource = self.delegate
+        self.sections.forEach { (section) in
+            if let _section = section as? PreloadableSection{
+                let rows = _section.preloadRows
+                rows.forEach({ (row) in
+                    TaskDispatcher.default.add(row.reuseIdentifier, {
+                        self.preloader.preload(row, tableView: tableView)
+                    })
+                })
+            }
+        }
     }
     func row(at indexPath:IndexPath) -> RowConvertable{
         lock.lock(); defer{lock.unlock()}

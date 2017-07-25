@@ -55,7 +55,7 @@ class NeteaseColumnlistCell: MDTableViewCell{
         guard let row = self.row else {
             return
         }
-        TaskDispatcher.shared.add("NeteaseColumnlist") {
+        TaskDispatcher.common.add("NeteaseColumnlist") {
             var subTableRows = [ColumnistItemRow]()
             row.columnists.enumerated().forEach { (columnist: (offset: Int, element: Columnist)) in
                 let style:ColumnistItemCellStyle = columnist.offset == 0 ? .full : .topPadding
@@ -86,5 +86,11 @@ class NeteaseColumnlistSection: Section,SortableSection {
             let columnlistSection = NeteaseColumnlistSection(rows: [exclusiveTitleRow,columnlistRow])
             return columnlistSection
         }
+    }
+}
+
+extension NeteaseColumnlistSection: PreloadableSection{
+    var preloadRows:[RowConvertable]{
+        return [NeteaseColumnlistRow(columnists: [])]
     }
 }

@@ -77,7 +77,7 @@ class NMMVCell: MDTableViewCell{
             return
         }
         for i in 0..<row.mvs.count{
-            TaskDispatcher.shared.add("mv\(i)", {
+            TaskDispatcher.common.add("mv\(i)", {
                 let mv = row.mvs[i]
                 let itemView = self.itemViews[i]
                 itemView.config(mv)
@@ -110,5 +110,11 @@ class NMMVSection : Section,SortableSection{
             let exclusiveSection = NMMVSection(rows: [exclusiveTitleRow,mvRow])
             return exclusiveSection
         }
+    }
+}
+
+extension NMMVSection: PreloadableSection{
+    var preloadRows:[RowConvertable]{
+        return [NMMVRow(mvs: [])]
     }
 }

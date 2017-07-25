@@ -21,6 +21,7 @@
 		B37049251F259B3700082343 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37049241F259B3700082343 /* Dispatch.swift */; };
 		B38D4D6E1EF2498C009A6D15 /* MDTable.h in Headers */ = {isa = PBXBuildFile; fileRef = B38D4D6C1EF2498C009A6D15 /* MDTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38FDFA21F0A430E00A4AE18 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38FDFA11F0A430E00A4AE18 /* Manager.swift */; };
+		B3FAF6A11F25F2DD00AD534F /* Preload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAF6A01F25F2DD00AD534F /* Preload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B38D4D6C1EF2498C009A6D15 /* MDTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDTable.h; sourceTree = "<group>"; };
 		B38D4D6D1EF2498C009A6D15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B38FDFA11F0A430E00A4AE18 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = ../../Source/Manager.swift; sourceTree = "<group>"; };
+		B3FAF6A01F25F2DD00AD534F /* Preload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preload.swift; path = ../../Source/Preload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				B3127DE61F0A42170048413C /* Edit.swift */,
 				B3127DE71F0A42170048413C /* Menu.swift */,
 				B37049241F259B3700082343 /* Dispatch.swift */,
+				B3FAF6A01F25F2DD00AD534F /* Preload.swift */,
 				B38D4D6C1EF2498C009A6D15 /* MDTable.h */,
 				B38D4D6D1EF2498C009A6D15 /* Info.plist */,
 			);
@@ -185,6 +188,7 @@
 				B3127DFD1F0A42AA0048413C /* Edit.swift in Sources */,
 				B3127DFE1F0A42AA0048413C /* Menu.swift in Sources */,
 				B37049251F259B3700082343 /* Dispatch.swift in Sources */,
+				B3FAF6A11F25F2DD00AD534F /* Preload.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

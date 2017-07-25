@@ -101,6 +101,14 @@ extension ReactiveRow{
                     _render(cell,false)
                 }
                 return cell;
+            }else if let cell = tableView.manager?.preloader.preloadMap[self.reuseIdentifier]{
+                if let cell = cell as? MDTableViewCell{
+                    cell.render(with: self)
+                }
+                if let _render = self._render{
+                    _render(cell,false)
+                }
+                return cell;
             }else{
                 switch self.initalType{
                 case .code(let cellClass):
