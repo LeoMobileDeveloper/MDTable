@@ -21,7 +21,7 @@ class NMBannerRow : ReactiveRow, ParallexBannerDelegate, ParallexBannerDataSourc
         bannerView = banner
         bannerView?.delegate = self
         bannerView?.dataSource = self
-        bannerView?.transitionMode = .Normal
+//        bannerView?.transitionMode = .Normal
         if isDirty{
             bannerView?.reloadData()
             isDirty = false

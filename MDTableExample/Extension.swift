@@ -167,3 +167,15 @@ extension UIButton{
     }
     
 }
+
+extension Date{
+    static var dayOfToday:String{
+        get{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd"
+            let date = Date()
+            let day = formatter.string(from: date)
+            return day
+        }
+    }
+}

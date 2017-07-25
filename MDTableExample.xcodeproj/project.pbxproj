@@ -31,6 +31,7 @@
 		B367B08E1F0F70AA008B66D9 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B367B08D1F0F70AA008B66D9 /* Channel.swift */; };
 		B367B0901F0F71B0008B66D9 /* ExclusiveItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B367B08F1F0F71B0008B66D9 /* ExclusiveItemView.swift */; };
 		B367B0941F0F76DC008B66D9 /* PlaceHolder.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B367B0931F0F76DC008B66D9 /* PlaceHolder.jpeg */; };
+		B38C32691F27455E00744D95 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C32681F27455E00744D95 /* MenuItemView.swift */; };
 		B38D4D821EF26B46009A6D15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4D811EF26B46009A6D15 /* AppDelegate.swift */; };
 		B38D4D891EF26B46009A6D15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B38D4D881EF26B46009A6D15 /* Assets.xcassets */; };
 		B38D4DA91EF26C28009A6D15 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D4DA81EF26C28009A6D15 /* MainTableViewController.swift */; };
@@ -39,7 +40,6 @@
 		B3ADD0EF1EF4F617007A1880 /* SectionIndexTitleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD0EE1EF4F617007A1880 /* SectionIndexTitleController.swift */; };
 		B3ADD0F31EF4FF74007A1880 /* NeteaseCloudMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD0F21EF4FF74007A1880 /* NeteaseCloudMusicController.swift */; };
 		B3B3C5C71F0E08E100A2F45E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3C5C61F0E08E100A2F45E /* Extension.swift */; };
-		B3B3C5FB1F0E105B00A2F45E /* NMMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B3C5FA1F0E105B00A2F45E /* NMMenuCell.xib */; };
 		B3C776D11F146F0E00FE1F60 /* MusicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C776CF1F146F0E00FE1F60 /* MusicItemView.swift */; };
 		B3C776D41F1476FB00FE1F60 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C776D31F1476FB00FE1F60 /* Footer.swift */; };
 		B3C776D71F14801500FE1F60 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C776D61F14801500FE1F60 /* Music.swift */; };
@@ -109,6 +109,7 @@
 		B367B08F1F0F71B0008B66D9 /* ExclusiveItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusiveItemView.swift; sourceTree = "<group>"; };
 		B367B0931F0F76DC008B66D9 /* PlaceHolder.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PlaceHolder.jpeg; sourceTree = "<group>"; };
 		B37C55D31EF26D160069FEB3 /* MDTable.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MDTable.xcodeproj; path = MDTable/MDTable.xcodeproj; sourceTree = "<group>"; };
+		B38C32681F27455E00744D95 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		B38D4D7E1EF26B46009A6D15 /* MDTableExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDTableExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38D4D811EF26B46009A6D15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B38D4D881EF26B46009A6D15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		B3ADD0EE1EF4F617007A1880 /* SectionIndexTitleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionIndexTitleController.swift; sourceTree = "<group>"; };
 		B3ADD0F21EF4FF74007A1880 /* NeteaseCloudMusicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeteaseCloudMusicController.swift; sourceTree = "<group>"; };
 		B3B3C5C61F0E08E100A2F45E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		B3B3C5FA1F0E105B00A2F45E /* NMMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NMMenuCell.xib; sourceTree = "<group>"; };
 		B3C776CF1F146F0E00FE1F60 /* MusicItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicItemView.swift; sourceTree = "<group>"; };
 		B3C776D31F1476FB00FE1F60 /* Footer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		B3C776D61F14801500FE1F60 /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
@@ -201,6 +201,7 @@
 				B318D3891F0FD68C00876CC6 /* MVItemView.swift */,
 				B318D38C1F134B4800876CC6 /* ColumnistItemCell.swift */,
 				B3ABBFAE1F136E6C0041BCE4 /* ChannelItemView.swift */,
+				B38C32681F27455E00744D95 /* MenuItemView.swift */,
 			);
 			name = SubView;
 			sourceTree = "<group>";
@@ -270,7 +271,6 @@
 				B367B0771F0F3612008B66D9 /* SubView */,
 				B3D7B9D01F0BA97300144FD1 /* Banner.swift */,
 				B3D7B9D21F0BA97F00144FD1 /* Menu.swift */,
-				B3B3C5FA1F0E105B00A2F45E /* NMMenuCell.xib */,
 				B34E884D1F0E7CD50022E640 /* ColumnTitle.swift */,
 				B367B0731F0F2D7A008B66D9 /* NMColumnTitleCell.xib */,
 				B367B0831F0F5F98008B66D9 /* Recommend.swift */,
@@ -390,7 +390,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3B3C5FB1F0E105B00A2F45E /* NMMenuCell.xib in Resources */,
 				B31F34EC1EF271CA005FA5E8 /* LaunchScreen.storyboard in Resources */,
 				B367B0741F0F2D7A008B66D9 /* NMColumnTitleCell.xib in Resources */,
 				B3E582501EF2D91C00314AB3 /* CusomCellWithXib.xib in Resources */,
@@ -423,6 +422,7 @@
 				B3ABBFB01F136E6C0041BCE4 /* ChannelItemView.swift in Sources */,
 				B31D5C181F17828B00F5E519 /* BaseNavigationController.swift in Sources */,
 				B3CB9C431F186C3700061578 /* AvatarItemView.swift in Sources */,
+				B38C32691F27455E00744D95 /* MenuItemView.swift in Sources */,
 				B318D38A1F0FD68C00876CC6 /* MVItemView.swift in Sources */,
 				B367B0841F0F5F98008B66D9 /* Recommend.swift in Sources */,
 				B3B3C5C71F0E08E100A2F45E /* Extension.swift in Sources */,
