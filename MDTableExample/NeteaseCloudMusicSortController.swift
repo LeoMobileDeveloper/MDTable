@@ -38,7 +38,6 @@ class SortHeaderView: UIView{
 class SortFooterView: UIView{
 
 }
-
 protocol NeteaseCloudMusicSortControllerDelegate {
     func didFinishReorder(with sections:SortableSection)
 }

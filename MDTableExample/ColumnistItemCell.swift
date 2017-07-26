@@ -18,6 +18,7 @@ class ColumnistItemCell: MDTableViewCell {
     var avatarImageView: UIImageView!
     var readCountLabel: UILabel!
     var prefixLabel: UILabel!
+    var separatorView:UIView = UIView()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
@@ -39,6 +40,8 @@ class ColumnistItemCell: MDTableViewCell {
         prefixLabel.layer.borderWidth = 0.5
         prefixLabel.text = "专栏"
         avatarImageView = UIImageView().added(to: self)
+        separatorView.backgroundColor = UIColor.groupTableViewBackground
+        contentView.addSubview(separatorView)
     }
     override func render(with row: RowConvertable) {
         guard let _row = row as? ColumnistItemRow else{
@@ -57,6 +60,7 @@ class ColumnistItemCell: MDTableViewCell {
         readCountLabel.frame = CGRect(x: 8.0, y: columnTitleLabel.maxY + 4.0, width: columnTitleLabel.frame.width, height: 15.0)
         prefixLabel.sizeToFit()
         prefixLabel.frame = CGRect(x: columnTitleLabel.x, y: columnTitleLabel.y + 2.0, width: prefixLabel.frame.width, height: prefixLabel.frame.height)
+        separatorView.frame = CGRect(x: 0, y: contentView.frame.height - 1.0, width: contentView.frame.width, height: 1.0)
     }
 }
 
