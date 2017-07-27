@@ -63,6 +63,10 @@ class MainTableViewController: UITableViewController {
         section1.heightForHeader = 30.0
 
         tableView.manager = TableManager(sections: [section0,section1])
+        
+        //Add FPS Label
+        let fpsLabel = FPSLabel(frame: CGRect(x: UIScreen.main.bounds.width - 45.0, y:UIScreen.main.bounds.height - 25.0 , width: 40.0, height: 20.0))
+        UIApplication.shared.keyWindow?.addSubview(fpsLabel)
     }
 }
 

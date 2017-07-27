@@ -48,7 +48,7 @@ class MenuItemView: UIView,UIGestureRecognizerDelegate {
                 dateLabel.textColor = UIColor.theme
             }
         default:
-            backgroundImageView.isHighlighted = false
+            foregroundImageView.isHighlighted = false
             dateLabel.textColor = UIColor.theme
         }
     }

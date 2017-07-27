@@ -28,13 +28,17 @@ enum TaskExecuteMode {
 public class TaskDispatcher{
     public static let common = TaskDispatcher(mode: .common)
     public static let `default` = TaskDispatcher(mode: .default)
+    enum State{
+        case running
+        case suspend
+    }
     var observer:CFRunLoopObserver?
     var tasks = [String:Task]()
     var taskKeys = [String]()
+    var state = State.suspend
     let mode:TaskExecuteMode
     init(mode:TaskExecuteMode) {
         self.mode = mode
-        self.register()
     }
     public func add(_ identifier:String, _ block:@escaping (Void)->Void){
         let task = Task(identifier,block)
@@ -49,17 +53,21 @@ public class TaskDispatcher{
             return
         }
         self.taskKeys.remove(at: index)
+        if self.taskKeys.count == 0 && self.state == .running{
+            invaliate()
+        }
     }
     func register(){
         let mainRunloop = RunLoop.main.getCFRunLoop()
         let activities = CFRunLoopActivity.beforeWaiting.rawValue | CFRunLoopActivity.exit.rawValue
-        let observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault,
+        observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault,
                                                           activities,
                                                           true,
                                                           Int.max) { (observer, activity) in
             self.executeTask()
         }
         CFRunLoopAddObserver(mainRunloop, observer, CFRunLoopMode.commonModes)
+        self.state = .running
     }
     func add(_ task:Task){
         guard tasks[task.taskID] == nil else {
@@ -67,6 +75,9 @@ public class TaskDispatcher{
         }
         self.tasks[task.taskID] = task
         self.taskKeys.append(task.taskID)
+        if self.state == .suspend{
+            register()
+        }
     }
     func executeTask(){
         guard let taskID = self.taskKeys.first else{
@@ -79,9 +90,13 @@ public class TaskDispatcher{
         }
         self.tasks[taskID] = nil
         task.exccute()
+        if self.taskKeys.count == 0 && self.state == .running{
+            invaliate()
+        }
     }
     
     func invaliate(){
         CFRunLoopRemoveObserver(RunLoop.main.getCFRunLoop(), observer, CFRunLoopMode.commonModes)
+        self.state = .suspend
     }
 }

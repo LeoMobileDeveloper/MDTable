@@ -21,6 +21,7 @@
 		B37049251F259B3700082343 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37049241F259B3700082343 /* Dispatch.swift */; };
 		B38D4D6E1EF2498C009A6D15 /* MDTable.h in Headers */ = {isa = PBXBuildFile; fileRef = B38D4D6C1EF2498C009A6D15 /* MDTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38FDFA21F0A430E00A4AE18 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38FDFA11F0A430E00A4AE18 /* Manager.swift */; };
+		B3E7FB6E1F2985BD0089044E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7FB6D1F2985BD0089044E /* Util.swift */; };
 		B3FAF6A11F25F2DD00AD534F /* Preload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAF6A01F25F2DD00AD534F /* Preload.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		B38D4D6C1EF2498C009A6D15 /* MDTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDTable.h; sourceTree = "<group>"; };
 		B38D4D6D1EF2498C009A6D15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B38FDFA11F0A430E00A4AE18 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = ../../Source/Manager.swift; sourceTree = "<group>"; };
+		B3E7FB6D1F2985BD0089044E /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = ../../Source/Util.swift; sourceTree = "<group>"; };
 		B3FAF6A01F25F2DD00AD534F /* Preload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preload.swift; path = ../../Source/Preload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				B3127DE71F0A42170048413C /* Menu.swift */,
 				B37049241F259B3700082343 /* Dispatch.swift */,
 				B3FAF6A01F25F2DD00AD534F /* Preload.swift */,
+				B3E7FB6D1F2985BD0089044E /* Util.swift */,
 				B38D4D6C1EF2498C009A6D15 /* MDTable.h */,
 				B38D4D6D1EF2498C009A6D15 /* Info.plist */,
 			);
@@ -182,6 +185,7 @@
 				B3127DF81F0A42AA0048413C /* ReactiveRow.swift in Sources */,
 				B3127DF91F0A42AA0048413C /* RowConvertable.swift in Sources */,
 				B3127DFA1F0A42AA0048413C /* Section.swift in Sources */,
+				B3E7FB6E1F2985BD0089044E /* Util.swift in Sources */,
 				B38FDFA21F0A430E00A4AE18 /* Manager.swift in Sources */,
 				B3127DFB1F0A42AA0048413C /* SectionConvertable.swift in Sources */,
 				B3127DFC1F0A42AA0048413C /* Focus.swift in Sources */,

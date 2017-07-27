@@ -24,14 +24,13 @@ class NeteaseColumnlistRow: ReactiveRow{
 class NeteaseColumnlistCell: MDTableViewCell{
     weak var row:NeteaseColumnlistRow?
     let section:Section = Section(rows: [])
-    var tableView:UITableView!
+    var itemViews:[ColumnistItemView] = []
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.tableView = UITableView(frame: self.bounds)
-        self.tableView.isScrollEnabled = false
-        self.tableView.separatorStyle = .none
-        contentView.addSubview(self.tableView)
-        self.tableView.manager = TableManager(sections: [section])
+        for _ in 0..<3{
+            let itemView = ColumnistItemView(frame: CGRect.zero).added(to:contentView)
+            itemViews.append(itemView)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,7 +38,15 @@ class NeteaseColumnlistCell: MDTableViewCell{
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        tableView.frame = contentView.bounds
+        let x:CGFloat = 0.0
+        var y:CGFloat = 0.0
+        let rowHeight = UIScreen.main.bounds.width / 320.0 * 75.0
+        let width = contentView.frame.width
+        for i in 0..<itemViews.count{
+            let itemView = itemViews[i]
+            itemView.frame = CGRect(x: x, y: y, width: width, height: rowHeight)
+            y += rowHeight
+        }
     }
     override func render(with row: RowConvertable) {
         guard let _row = row as? NeteaseColumnlistRow else{
@@ -55,14 +62,14 @@ class NeteaseColumnlistCell: MDTableViewCell{
         guard let row = self.row else {
             return
         }
-        TaskDispatcher.common.add("NeteaseColumnlist") {
-            var subTableRows = [ColumnistItemRow]()
-            row.columnists.enumerated().forEach { (columnist: (offset: Int, element: Columnist)) in
-                let style:ColumnistItemCellStyle = columnist.offset == 0 ? .full : .topPadding
-                subTableRows.append(ColumnistItemRow(item: columnist.element, style:style))
-            }
-            self.section.rows = subTableRows
-            self.tableView.manager?.reloadData()
+        for i in 0..<row.columnists.count{
+            TaskDispatcher.common.add("columnists\(i)", {
+                let itemView = self.itemViews[i]
+                let columnist = row.columnists[i]
+                let style:ColumnistItemCellStyle = i == 0 ? .full : .topPadding
+                let item = ColumnistItem(item: columnist, style: style)
+                itemView.config(item)
+            })
         }
     }
 }
