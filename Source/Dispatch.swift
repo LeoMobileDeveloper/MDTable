@@ -66,7 +66,8 @@ public class TaskDispatcher{
                                                           Int.max) { (observer, activity) in
             self.executeTask()
         }
-        CFRunLoopAddObserver(mainRunloop, observer, CFRunLoopMode.commonModes)
+        let runLoopMode = (mode == .common) ? CFRunLoopMode.commonModes : CFRunLoopMode.defaultMode
+        CFRunLoopAddObserver(mainRunloop, observer, runLoopMode)
         self.state = .running
     }
     func add(_ task:Task){
@@ -77,6 +78,14 @@ public class TaskDispatcher{
         self.taskKeys.append(task.taskID)
         if self.state == .suspend{
             register()
+        }
+    }
+    func reset(){
+        syncExecuteOnMain{
+            self.tasks.removeAll()
+            if self.state == .running{
+                self.invaliate()
+            }
         }
     }
     func executeTask(){

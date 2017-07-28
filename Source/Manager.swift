@@ -14,12 +14,13 @@ public class TableManager{
     public var editorManager:Editor?
     public var menuManager:TableMenuManager?
     public var focusManager:TableFocusManager?
+    var dispatcher:TaskDispatcher = TaskDispatcher(mode: .default)
     public weak var tableView:UITableView?
     var delegate:TableDelegate?
     private let lock = NSRecursiveLock()
     var sectionIndexTitles:[String] = []
     var sectionIndexMap:[Int:Int] = [:]//Map index in sectionIndexTitles to section
-    public lazy var preloader:TablePreloader = TablePreloader()
+    lazy var preloader:TablePreloader = TablePreloader()
     public init(sections:[SectionConvertable],
                 delegate:TableDelegate = TableDelegate(),
                 editor:Editor? = nil
@@ -45,14 +46,18 @@ public class TableManager{
         self.tableView = tableView
         tableView.delegate = self.delegate
         tableView.dataSource = self.delegate
-        self.sections.forEach { (section) in
-            if let _section = section as? PreloadableSection{
-                let rows = _section.preloadRows
-                rows.forEach({ (row) in
-                    TaskDispatcher.default.add(row.reuseIdentifier, {
-                        self.preloader.preload(row, tableView: tableView)
+        //Preload Sections
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.dispatcher.reset()
+            self.sections.forEach { (section) in
+                if let _section = section as? PreloadableSection{
+                    let rows = _section.preloadRows
+                    rows.forEach({ (row) in
+                        self.dispatcher.add(row.reuseIdentifier, {
+                            self.preloader.preload(row, tableView: tableView)
+                        })
                     })
-                })
+                }
             }
         }
     }
@@ -65,7 +70,7 @@ public class TableManager{
     }
     public func reloadData(){
         assert(tableView != nil, "You have to bind a tableView first")
-        DispatchQueue.main.async {
+        asyncExecuteOnMain {
             self.reloadSectionIndexTitles()
             self.tableView?.reloadData()
         }

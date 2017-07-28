@@ -18,7 +18,6 @@ class NMMVRow: ReactiveRow{
         self.mvs = mvs
         super.init()
         self.rowHeight = NMMVConst.itemHeight * 2.0 + 6.0
-        self.reuseIdentifier = "NMMVRow"
         self.initalType = .code(className: NMMVCell.self)
     }
 }

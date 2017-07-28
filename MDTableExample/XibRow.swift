@@ -21,7 +21,6 @@ class XibRow:ReactiveRow{
         self.image = image
         super.init()
         self.rowHeight = 80.0
-        self.reuseIdentifier = "XibRow"
         self.initalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib")
     }
 

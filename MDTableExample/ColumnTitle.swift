@@ -16,7 +16,6 @@ class NMColumnTitleRow: ReactiveRow{
         super.init()
         self.rowHeight = 45.0
         self.initalType = .xib(xibName: "NMColumnTitleCell")
-        self.reuseIdentifier = "NMColumnTitleRow"
     }
 }
 

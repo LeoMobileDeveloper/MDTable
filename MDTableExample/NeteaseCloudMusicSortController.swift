@@ -38,12 +38,13 @@ class SortHeaderView: UIView{
 class SortFooterView: UIView{
 
 }
-protocol NeteaseCloudMusicSortControllerDelegate {
-    func didFinishReorder(with sections:SortableSection)
+protocol NeteaseCloudMusicSortControllerDelegate: class {
+    func didFinishReorder(with sections:[SortableSection])
 }
 class NeteaseCloudMusicSortController: UITableViewController {
     var sections:[SortableSection]
     let editor = TableEditor()
+    weak var delegate:NeteaseCloudMusicSortControllerDelegate?
     init(sections:[SortableSection]){
         self.sections = sections
         super.init(style: .plain)
@@ -67,7 +68,7 @@ class NeteaseCloudMusicSortController: UITableViewController {
         tableView.manager = TableManager(sections: [section], editor: editor)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         editor.moveRowAtSourceIndexPathToDestinationIndexPath = { tableView, fromIndexpath, toIndexPath in
-            guard let manager = tableView.manager else{
+            guard tableView.manager != nil else{
                 return
             }
             var fromSection  = self.sections[fromIndexpath.row]
@@ -79,6 +80,7 @@ class NeteaseCloudMusicSortController: UITableViewController {
         }
     }
     func handleItemClicked(_ sender: UIBarButtonItem){
+        self.delegate?.didFinishReorder(with: self.sections)
         dismiss(animated: true, completion: nil)
     }
 }

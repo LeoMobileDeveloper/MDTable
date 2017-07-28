@@ -17,7 +17,6 @@ class NMRecommendRow:ReactiveRow {
         self.recommends = recommends
         super.init()
         self.rowHeight = NMRecommendConst.itemHeight * 2.0 
-        self.reuseIdentifier = "NMRecommendRow"
         self.shouldHighlight = false
         self.initalType = .code(className: NMRecommendCell.self)
     }

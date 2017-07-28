@@ -31,7 +31,6 @@ class NMBannerRow : ReactiveRow, ParallexBannerDelegate, ParallexBannerDataSourc
     init(items:[BannerItem]) {
         self.items = items
         super.init()
-        self.reuseIdentifier = "BannerRow"
         self.rowHeight = UIScreen.main.bounds.width / 320.0 * 125.0
         self.initalType = .code(className: NMBannerCell.self)
         self.shouldHighlight = false

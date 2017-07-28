@@ -17,7 +17,6 @@ class NMLatestMusicRow:ReactiveRow {
         self.musics = musics
         super.init()
         self.rowHeight = NMMusicConst.itemHeight * 2.0 + 15.0
-        self.reuseIdentifier = "NMMusicRow"
         self.shouldHighlight = false
         self.initalType = .code(className: NMMusicCell.self)
     }

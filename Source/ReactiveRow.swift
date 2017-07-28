@@ -17,7 +17,7 @@ open class ReactiveRow : RowConvertable{
     open var shouldHighlight: Bool
     public init(){
         self.rowHeight = 44.0
-        self.reuseIdentifier = "Row"
+        self.reuseIdentifier = "\(type(of: self))"
         self.initalType = .code(className: MDTableViewCell.self)
         self.indentationLevel = 0
         self.shouldHighlight = true

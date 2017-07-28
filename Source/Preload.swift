@@ -9,7 +9,7 @@
 import Foundation
 
 /// Preload a row and save it to memory. So that when you scroll, you do not need to create this object any more.
-public class TablePreloader{
+class TablePreloader{
     var preloadMap = [String:UITableViewCell]()
     func preload(_ row:RowConvertable,tableView:UITableView){
         assert(Thread.isMainThread)

@@ -49,7 +49,6 @@ class NMExclusiveRow:ReactiveRow {
         self.exclusives = exclusives
         super.init()
         self.rowHeight = NMExclusiveConst.halfItemHeight + NMExclusiveConst.fullItemHeight
-        self.reuseIdentifier = "NMExclusiveRow"
         self.shouldHighlight = false
         self.initalType = .code(className: NMExclusiveCell.self)
     }

@@ -17,6 +17,7 @@ class ChannelItemView:AvatarItemView{
         podcasterNameLabel.text = channel.podcasterName
         avatarImageView.asyncSetImage(channel.avatar)
         describeLabel.text = channel.describe
+        
     }
     override init(frame: CGRect) {
         super.init(frame: frame)

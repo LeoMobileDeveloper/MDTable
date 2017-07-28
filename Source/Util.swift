@@ -8,11 +8,21 @@
 
 import Foundation
 
-func executeOnMain(_ block:@escaping (Void)->Void){
+func asyncExecuteOnMain(_ block:@escaping (Void)->Void){
     if Thread.isMainThread{
         block()
     }else{
         DispatchQueue.main.async {
+            block()
+        }
+    }
+}
+
+func syncExecuteOnMain(_ block:@escaping (Void)->Void){
+    if Thread.isMainThread{
+        block()
+    }else{
+        DispatchQueue.main.sync {
             block()
         }
     }

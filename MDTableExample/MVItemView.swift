@@ -66,5 +66,4 @@ class NMMV {
         singerName = singer
         self.playCount = playCount
     }
-    
 }

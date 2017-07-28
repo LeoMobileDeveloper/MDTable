@@ -28,7 +28,6 @@ class NMChannelRow:ReactiveRow {
         self.channels = channels
         super.init()
         self.rowHeight = NMChannelConst.itemHeight * 2.0 
-        self.reuseIdentifier = "NMChannelRow"
         self.shouldHighlight = false
         self.initalType = .code(className: NMChannelCell.self)
     }
