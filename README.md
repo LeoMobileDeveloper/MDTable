@@ -36,6 +36,12 @@ And your tableView is ready.
 
 - [中文文档](https://github.com/LeoMobileDeveloper/MDTable/blob/master/Documents/Chinese%20Document.md)
 
+## Demo
+The example project contains a demo of **NeteaseCloudMusic**。(以网易云音乐首页作为Demo)
+
+<img src="https://raw.githubusercontent.com/LeoMobileDeveloper/React-Native-Files/master/Demo.gif" width="320">
+
+
 ## Require
 
 - Xcode 8.1+
