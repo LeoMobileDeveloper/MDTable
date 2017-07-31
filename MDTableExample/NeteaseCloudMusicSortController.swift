@@ -63,20 +63,20 @@ class NeteaseCloudMusicSortController: UITableViewController {
         tableView.separatorColor = UIColor.groupTableViewBackground
        
         //Manager
-        let rows = sections.map{ ReorderRow(title: $0.sortTitle)}
+        let rows = sections.map{ ReorderRow(title: $0.sortTitle) }
         let section = Section(rows: rows)
         tableView.manager = TableManager(sections: [section], editor: editor)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         editor.moveRowAtSourceIndexPathToDestinationIndexPath = { tableView, fromIndexpath, toIndexPath in
-            guard tableView.manager != nil else{
+            guard let manager = tableView.manager else{
                 return
             }
-            var fromSection  = self.sections[fromIndexpath.row]
-            var toSection = self.sections[toIndexPath.row]
-            let temp = fromSection.sequence
-            fromSection.sequence = toSection.sequence
-            toSection.sequence = temp
-            tableView.manager?.exchange(fromIndexpath, with: toIndexPath)
+            manager.move(from: fromIndexpath, to: toIndexPath)
+            let section = self.sections.remove(at: fromIndexpath.row)
+            self.sections.insert(section, at: toIndexPath.row)
+            for i in 0..<self.sections.count{//Array is value type
+                self.sections[i].sequence = i + 1
+            }
         }
     }
     func handleItemClicked(_ sender: UIBarButtonItem){

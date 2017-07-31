@@ -30,11 +30,11 @@ class ReorderTableViewController: UITableViewController {
         }
         let section = Section(rows: rows)
         section.heightForHeader = 0.0
-        let Editor = TableEditor()
-        Editor.moveRowAtSourceIndexPathToDestinationIndexPath = {(tableView,sourceIndexPath,destinationIndexPath) in
-            tableView.manager?.exchange(sourceIndexPath, with: destinationIndexPath)
+        let editor = TableEditor()
+        editor.moveRowAtSourceIndexPathToDestinationIndexPath = {(tableView,sourceIndexPath,destinationIndexPath) in
+            tableView.manager?.move(from: sourceIndexPath, to: destinationIndexPath)
         }
-        tableView.manager = TableManager(sections: [section],editor:Editor)
+        tableView.manager = TableManager(sections: [section],editor:editor)
     }
 }
 

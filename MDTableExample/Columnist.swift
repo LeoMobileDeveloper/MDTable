@@ -17,6 +17,7 @@ class NeteaseColumnlistRow: ReactiveRow{
         super.init()
         self.rowHeight = UIScreen.main.bounds.width / 320.0  * 75.0 * 3
         self.initalType = .code(className: NeteaseColumnlistCell.self)
+        self.shouldHighlight = false
     }
 }
 

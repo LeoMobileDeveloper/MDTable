@@ -103,19 +103,27 @@ public class TableManager{
             }
         }
     }
-    public func delete(row at:IndexPath){
+    @discardableResult
+    public func delete(row at:IndexPath) -> RowConvertable?{
         lock.lock();defer{lock.unlock()}
         if at.section >= self.sections.count {
-            return
+            return nil
         }
         var section = self.sections[at.section]
         if at.row >= section.rows.count {
-            return
+            return nil
         }
-        section.rows.remove(at: at.row)
+        let row = section.rows.remove(at: at.row)
         if section.rows.count == 0 {
             sections.remove(at: at.section)
         }
+        return row
+    }
+    public func move(from indexPath:IndexPath, to destinationIndexPath:IndexPath ){
+        guard let row = self.delete(row: indexPath) else{
+            return
+        }
+        self.insert(row: row, at: destinationIndexPath)
     }
     
     public func delete(rows at:Set<IndexPath>){
@@ -149,14 +157,4 @@ public class TableManager{
         }
         section.rows.insert(content, at: indexPath.row)
     }
-    public func exchange(_ left:IndexPath, with right:IndexPath){
-        guard let leftRow = self[left], let rightRow = self[right] else {
-            return
-        }
-        self.delete(row: left)
-        self.insert(row: rightRow, at: left)
-        self.delete(row: right)
-        self.insert(row: leftRow, at: right)
-    }
-    
 }

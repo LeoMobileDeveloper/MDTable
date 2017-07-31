@@ -14,7 +14,7 @@
 
 ## MDTables
 
-MDTable is a **model-driven and declarative framework**. 
+MDTable is a *data-driven UITableView**.
 
 ```
 let row0 = Row(title: "System Cell", accessoryType: .disclosureIndicator)
@@ -40,6 +40,8 @@ And your tableView is ready.
 The example project contains a demo of **NeteaseCloudMusic**。(以网易云音乐首页作为Demo)
 
 <img src="https://raw.githubusercontent.com/LeoMobileDeveloper/React-Native-Files/master/Demo.gif" width="320">
+
+- [实现60fps的网易云音乐首页](http://www.jianshu.com/p/dcf010d419ec)
 
 
 ## Require

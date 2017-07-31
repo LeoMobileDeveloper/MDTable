@@ -19,6 +19,7 @@ class NMMVRow: ReactiveRow{
         super.init()
         self.rowHeight = NMMVConst.itemHeight * 2.0 + 6.0
         self.initalType = .code(className: NMMVCell.self)
+        self.shouldHighlight = false
     }
 }
 
