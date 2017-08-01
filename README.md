@@ -14,7 +14,7 @@
 
 ## MDTables
 
-MDTable is a *data-driven UITableView**.
+An elegant to create tableView
 
 ```
 let row0 = Row(title: "System Cell", accessoryType: .disclosureIndicator)
