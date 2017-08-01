@@ -14,7 +14,7 @@
 
 ## MDTables
 
-An elegant to create tableView
+An elegant way to create tableView
 
 ```
 let row0 = Row(title: "System Cell", accessoryType: .disclosureIndicator)
