@@ -87,22 +87,19 @@ Then use declarative API to handle event
 row.onWillDisplay { (tableView, cell, indexPath) in
     //Access manager with tableView.manager
 }
-row.onDidSelected { (tableView, indexPath) in
-    
-}
+row.onDidSelected { (tableView, indexPath) in }
 ```
-Then,create a manager and bind to tableView
+Then,create a manager and bind it to tableView
 
 ```
-tableManager = TableManager(sections: [section0])
-tableView.md_bindTo(manager: tableManager)
+tableView.manager = TableManager(sections: [section0])
 ```
 
 ### Custom Cell
 
 #### Model
 
-Create a subClass of `ReactiveRow`
+Create a subClass of `ReactiveRow`,
 
 ```
 class XibRow:ReactiveRow{
@@ -116,8 +113,8 @@ class XibRow:ReactiveRow{
         self.image = image
         super.init()
         self.rowHeight = 80.0
-        self.reuseIdentifier = "XibRow"
-        self.initalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib")
+        self.reuseIdentifier = "XibRow" //Default reuseIdentifier is class Name
+        self.initalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib") // How row is created
     }
 
 }

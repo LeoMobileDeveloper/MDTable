@@ -2,41 +2,27 @@
 
 MDTable是一个模型驱动的响应式框架，使用MDTable，开发者不需要关注复杂的Delegate/DataSource方法。MDTable只关注三件事情
 
-- Row - 用来表示每一行的模型。你可以选择继承
-- SectionModel - 实现`TableSection`协议的实例，用来表示每一个Section。
-- Cell - MDTableViewCell及其子类，用来表示每一行如何展示。
+- Row - 用来表示每一行的模型
+- SectionModel - 用来表示每一个Section。
+- Cell - 用来表示每一行如何展示。
 
 在使用MDTable的时候，开发者只需要
 
-- 根据数据生成RowModel和SectionModel
-- 根据Row和Section创建Manager
-- 把Manager绑定到TableView。
+- 根据Model创建Row
+- 根据Row创建Section
+- 根据Section创建Manager，并且绑定到TableView
 
 ```
 //创建Row
-let row0_0 = SystemRow(title: "System Cell", accessoryType: .disclosureIndicator)
-let row0_1 = SystemRow(title: "Custom Cell", accessoryType: .disclosureIndicator)
+let row0 = Row(title: "System Cell", accessoryType: .disclosureIndicator)
+
 //创建Section
-let section0 = SystemSection(rows: [row0_0,row0_1]])
+let section0 = SystemSection(rows: [row0]])
 section0.titleForHeader = "Basic"
 section0.heightForHeader = 30.0
 //创建Manager
 tableView.manager = TableManager(sections: [section0,section1])
 ```
-
-----
-## Cell
-
-为了能够让子类重写，MDTable提供了`MDTableViewCell`（对`UITableViewCell`的简单封装）。并且提供了类`Row`来表示`SystemTableViewCell`对应的Model。
-
-- image 
-- title 
-- detailTitle  
-- accessoryType
-- rowHeight
-- cellStyle 
-- reuseIdentifier 复用标识符
-- initalType 初始化类型（通过xib/还是代码）
 
 ----
 ## 事件
@@ -53,13 +39,18 @@ row.onDidSelected { (tableView, indexPath) in
 ```
 
 ---
+## 系统cell
+
+对于一个系统Cell，使用内置的Row类型即可。
+
+---
 ## 自定义Cell
 
 自定义Cell，你需要以下两个步骤：
 
-### 创建Model类
+### Row
 
-创建一个类型，继承`ReactiveRow`
+继承`ReactiveRow`
 
 ```
 class XibRow:ReactiveRow{
@@ -72,16 +63,16 @@ class XibRow:ReactiveRow{
         self.subTitle = subTitle
         self.image = image
         super.init()
-        self.rowHeight = 80.0
-        self.reuseIdentifier = "XibRow"
-        self.initalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib")
+        self.rowHeight = 80.0 // 行高
+        self.reuseIdentifier = "XibRow" // 复用标识符，默认是类名
+        self.initalType = RowConvertableInitalType.xib(xibName: "CusomCellWithXib") //初始化类型
     }
 }
 ```
 
-### 创建MDTableViewCell的子类
+### Cell
 
-可以用XIB，或者Class。只要与RowModel的`initalType`一致即可。然后，重写Render方法
+继承MDTableViewCell。可以用XIB，或者Class。只要与RowModel的`initalType`一致即可。然后，重写Render方法
 
 ```
 class CusomCellWithXib: MDTableViewCell{    
@@ -96,33 +87,25 @@ class CusomCellWithXib: MDTableViewCell{
 接着，在Controller中，使用RowModel即可：
 
 ```
-import MDTable
-
-class CustomCellWithXibController: UITableViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.title = "Custom cell with XIB"
-        let rows = (1..<100).map { (index) -> CustomXibRow in
-            let row = CustomXibRow(title: "Title\(index)", subTitle: "Subtitle \(index)", image: UIImage(named: "avatar")!)
-            row.didSelectRowAt = { (tableView, indexPath) in
-                tableView.manager.delete(row: indexPath)
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            }
-            return row
-        }
-        let section = SystemSection(rows: rows)
-        section.heightForHeader = 30.0
-        section.titleForHeader = "Tap Row to Delete"
-        tableView.manager = TableManager(sections: [section])
+let rows = (1..<100).map { (index) -> CustomXibRow in
+    let row = CustomXibRow(title: "Title\(index)", subTitle: "Subtitle \(index)", image: UIImage(named: "avatar")!)
+    row.didSelectRowAt = { (tableView, indexPath) in
+        tableView.manager.delete(row: indexPath)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+    return row
 }
+let section = SystemSection(rows: rows)
+section.heightForHeader = 30.0
+section.titleForHeader = "Tap Row to Delete"
+tableView.manager = TableManager(sections: [section])
 
 ```
 
 ---
 ## 动态行高
 
-由于行高是在RowModel里提供的，所以你需要在这里动态计算行高
+由于行高是在Row里提供的，所以你需要在这里动态计算行高
 
 ```
    var rowHeight: CGFloat{
@@ -157,13 +140,6 @@ MDTable提供了`Editor`(协议)来处理编辑相关的逻辑，并且提供了
 比如，最简单的滑动删除
 
 ```
-let rows = (1..<100).map { (index) -> SwipteToDeleteRow in
-    let row = SwipteToDeleteRow(title: "\(index)")
-    return row
-}
-let section = Section(rows: rows)
-section.heightForHeader = 30.0
-section.titleForHeader = "Swipe to Delete"
 let tableEditor = TableEditor()
 tableEditor.editingStyleCommitForRowAt = { (tableView, style, indexPath) in
     if style == .delete{
@@ -191,13 +167,6 @@ class ReorderRow: ReactiveRow, EditableRow{
 同样，你需要创建一个TableEditor，来管理排序相关的逻辑：
 
 ```
-tableView.setEditing(true, animated: false)
-let rows = (1..<100).map { (index) -> ReorderRow in
-    let row = ReorderRow(title: "\(index)")
-    return row
-}
-let section = Section(rows: rows)
-section.heightForHeader = 0.0
 let tableEditor = TableEditor()
 tableEditor.moveRowAtSourceIndexPathToDestinationIndexPath = { (tableview,sourceIndexPath,destinationIndexPath) in
     tableview.manager.exchange(sourceIndexPath, with: destinationIndexPath)
@@ -213,10 +182,3 @@ IndexTitle的实现非常容易，只需要配置Section的`sectionIndexTitle`�
 ```
 section.sectionIndexTitle = "A"
 ```
-
-
----
-## TODO:
-
-- 支持Menu
-- 支持Focus
