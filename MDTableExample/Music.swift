@@ -96,7 +96,7 @@ class LatestMusicSection: Section,SortableSection{
     static var mockSection:LatestMusicSection{
         get{
             let musicTitleRow = NMColumnTitleRow(title: "最新音乐")
-            let images = (1...6).map{"music_\($0).jpeg"}.map{ UIImage(named:$0)! }
+            let images = (1...6).map{"music_\($0).jpeg"}.map{ UIImage(named:$0)}
             let titles = ["新歌推荐","爱如空气","原上草","猎户星座","2017跨界歌王", "Despicable Me"]
             let subTitles = ["推荐合口味的新歌","韦礼安","刘惜君","朴树","群星","Various Artists"]
             var musics = [NMLatestMusic]()

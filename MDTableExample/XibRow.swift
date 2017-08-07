@@ -14,8 +14,8 @@ class XibRow:ReactiveRow{
     //Data
     var title:String
     var subTitle:String
-    var image:UIImage
-    init(title:String, subTitle:String, image:UIImage) {
+    var image:UIImage?
+    init(title:String, subTitle:String, image:UIImage?) {
         self.title = title
         self.subTitle = subTitle
         self.image = image

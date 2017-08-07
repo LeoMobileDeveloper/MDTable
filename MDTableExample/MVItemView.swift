@@ -56,11 +56,11 @@ class MVItemView: UIView {
 }
 
 class NMMV {
-    let avatarImage:UIImage
+    let avatarImage:UIImage?
     let avatarName:String
     let singerName:String
     let playCount:Int
-    init(avatar:UIImage, name:String, singer:String, playCount:Int) {
+    init(avatar:UIImage?, name:String, singer:String, playCount:Int) {
         avatarImage = avatar
         avatarName = name
         singerName = singer

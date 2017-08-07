@@ -62,7 +62,7 @@ class ColumnistItemView: UIView {
 
 class ColumnistItem{
     var title:String
-    var avatar:UIImage
+    var avatar:UIImage?
     var readCount:String
     var style:ColumnistItemCellStyle
     var attributeTitle:NSAttributedString {
@@ -83,9 +83,9 @@ class ColumnistItem{
 
 class Columnist{
     var title:String
-    var avatar:UIImage
+    var avatar:UIImage?
     var readCount:Int
-    init(title:String, avatar:UIImage, readCount:Int) {
+    init(title:String, avatar:UIImage?, readCount:Int) {
         self.title = title
         self.avatar = avatar
         self.readCount = readCount

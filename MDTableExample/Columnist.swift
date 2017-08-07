@@ -82,7 +82,7 @@ class NeteaseColumnlistSection: Section,SortableSection {
     static var mockSection:NeteaseColumnlistSection{
         get{
             let exclusiveTitleRow = NMColumnTitleRow(title: "精选专栏")
-            let images = (1...3).map{"columnistl_\($0)"}.map{ UIImage(named: $0)!}
+            let images = (1...3).map{"columnistl_\($0)"}.map{ UIImage(named: $0)}
             let counts = [23641,23080,13073]
             let titles = ["重温《春光乍泄》：一层胸壁的距离，这么远那么近","来学习！一个嘿趴零基础路人怎么看中国有嘻哈"," 如今年轻人错过了流行音乐最辉煌的时代"]
             var rows = [Columnist]()

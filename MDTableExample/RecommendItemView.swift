@@ -51,9 +51,9 @@ class RecommendItemView: AvatarItemView {
 
 class NMRecommend {
     var describe:String
-    var avatar:UIImage
+    var avatar:UIImage?
     var playCount:Int
-    init(avatar:UIImage, playCount:Int,describe:String){
+    init(avatar:UIImage?, playCount:Int,describe:String){
         self.avatar = avatar
         self.playCount = playCount
         self.describe = describe

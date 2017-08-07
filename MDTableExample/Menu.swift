@@ -57,7 +57,7 @@ class NMMenuCell: MDTableViewCell {
 class MenuSection:Section{
     static var mockSection:MenuSection{
         get{
-            let items = (1...6).map{"cm2_daily_banner\($0).jpg"}.map { BannerItem(image: UIImage(named: $0)!, type: "推荐", color: UIColor.orange) }
+            let items = (1...6).map{"cm2_daily_banner\($0).jpg"}.map { BannerItem(image: UIImage(named: $0), type: "推荐", color: UIColor.orange) }
             let bannerRow = NMBannerRow(items: items)
             let menuRow = NMMenuRow()
             let section = MenuSection(rows: [bannerRow,menuRow])

@@ -53,10 +53,10 @@ class MusicItemView: AvatarItemView {
 
 //新歌推荐
 class NMLatestMusic {
-    var avatar:UIImage
+    var avatar:UIImage?
     var title:String
     var subTitle:String
-    init(avatar:UIImage, title:String,subTitle:String){
+    init(avatar:UIImage?, title:String,subTitle:String){
         self.avatar = avatar
         self.title = title
         self.subTitle = subTitle

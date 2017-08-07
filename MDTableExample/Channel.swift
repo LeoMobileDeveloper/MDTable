@@ -12,9 +12,9 @@ import MDTable
 //主播电台
 class NMChannel {
     var describe:String
-    var avatar:UIImage
+    var avatar:UIImage?
     var podcasterName:String
-    init(avatar:UIImage, describe:String,podcasterName:String){
+    init(avatar:UIImage?, describe:String,podcasterName:String){
         self.avatar = avatar
         self.podcasterName = podcasterName
         self.describe = describe
@@ -107,7 +107,7 @@ class ChannelSection: Section, SortableSection{
     static var mockSection:ChannelSection{
         get{
             let channelTitleRow = NMColumnTitleRow(title: "主播电台")
-            let images = (1...6).map{"channel_\($0).jpeg"}.map{ UIImage(named:$0)! }
+            let images = (1...6).map{"channel_\($0).jpeg"}.map{ UIImage(named:$0) }
             let podcaster = ["盗墓笔记","陈一发儿","PAGE SEVEN 胡先笙","冯提莫","明星会客室","网易轻松一刻"]
             let describes = ["长热不衰的盗墓悬疑之作","知性女性陈一发的空灵音色","解读这个世界背后的逻辑","人气主播冯提莫的活力唱腔","本期嘉宾梅婷张智霖阿娇耿乐","网易新闻轻松一刻频道"]
             var channels = [NMChannel]()

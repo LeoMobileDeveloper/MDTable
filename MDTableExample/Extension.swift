@@ -75,9 +75,9 @@ extension UIImage{
 }
 
 extension UIImageView{
-    func asyncSetImage(_ image:UIImage){
+    func asyncSetImage(_ image:UIImage?){
         DispatchQueue.global(qos: .userInteractive).async {
-            let decodeImage = image.decodedImage()
+            let decodeImage = image?.decodedImage()
             DispatchQueue.main.async {
                 self.image = decodeImage
             }

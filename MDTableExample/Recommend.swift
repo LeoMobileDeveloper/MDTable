@@ -100,7 +100,7 @@ class RecommendSection:Section,SortableSection{
             let counts = [400000,210000,200000,52568,800000,8110000]
             var recommends = [NMRecommend]()
             for i in 1...6{
-                let recommned = NMRecommend(avatar: UIImage(named: "music_sheet_\(i)")!, playCount: counts[i-1], describe: titles[i-1])
+                let recommned = NMRecommend(avatar: UIImage(named: "music_sheet_\(i)"), playCount: counts[i-1], describe: titles[i-1])
                 recommends.append(recommned)
             }
             let recommendRow = NMRecommendRow(recommends: recommends)

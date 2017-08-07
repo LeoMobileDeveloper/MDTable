@@ -329,10 +329,10 @@ public class LeftRoundLabel: UILabel{
 }
 
 public class BannerItem{
-    var image:UIImage
+    var image:UIImage?
     var type:String
     var color:UIColor
-    init(image:UIImage, type:String, color:UIColor) {
+    init(image:UIImage?, type:String, color:UIColor) {
         self.image = image
         self.type = type
         self.color = color

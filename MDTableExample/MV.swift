@@ -97,7 +97,7 @@ class NMMVSection : Section,SortableSection{
     static var mockSection: NMMVSection{
         get{
             let exclusiveTitleRow = NMColumnTitleRow(title: "推荐MV")
-            let images = (1...4).map{"mv_\($0).jpeg"}.map{ UIImage(named: $0)!}
+            let images = (1...4).map{"mv_\($0).jpeg"}.map{ UIImage(named: $0)}
             let counts = [9936,48380,770000,1720000]
             let singers = ["徐歌阳","Liam Gallagher","薛之谦","DJ Khaled/Rihanna"]
             let names = ["Forever","Chinatown","高尚","Wild Thoughts"]

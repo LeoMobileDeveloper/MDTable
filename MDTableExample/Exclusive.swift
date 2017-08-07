@@ -12,8 +12,8 @@ import MDTable
 
 class NMExclusive{
     var describe:String
-    var avatar:UIImage
-    init(avatar:UIImage, describe:String){
+    var avatar:UIImage?
+    init(avatar:UIImage?, describe:String){
         self.avatar = avatar
         self.describe = describe
     }
@@ -121,7 +121,7 @@ class ExclusiveSection: Section,SortableSection{
     static var mockSection: ExclusiveSection {
         get{
             let exclusiveTitleRow = NMColumnTitleRow(title: "独家放送")
-            let images = (1...3).map{"exclusive_\($0).jpeg"}.map{ UIImage(named: $0)!}
+            let images = (1...3).map{"exclusive_\($0).jpeg"}.map{ UIImage(named: $0)}
             let describe = ["当电子音乐遇到逆天芭蕾舞，优雅又现代感十足！",
                             "达人翻弹胡夏新歌《夏至未至》，温柔哭了",
                             "一起去嘻哈世界里感受独一不二的swag"
