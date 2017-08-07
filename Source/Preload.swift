@@ -11,6 +11,7 @@ import Foundation
 /// Preload a row and save it to memory. So that when you scroll, you do not need to create this object any more.
 class TablePreloader{
     var preloadMap = [String:UITableViewCell]()
+    var lock:NSRecursiveLock = NSRecursiveLock()
     func preload(_ row:RowConvertable,tableView:UITableView){
         assert(Thread.isMainThread)
         switch row.initalType{
@@ -25,6 +26,7 @@ class TablePreloader{
         }
     }
     func reset(){
+        lock.lock(); defer{ lock.unlock() }
         preloadMap.removeAll()
     }
 }

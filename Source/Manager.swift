@@ -20,6 +20,7 @@ public class TableManager{
     private let lock = NSRecursiveLock()
     var sectionIndexTitles:[String] = []
     var sectionIndexMap:[Int:Int] = [:]//Map index in sectionIndexTitles to section
+    private let queue = DispatchQueue(label: "com.MDTable.manager.queue");
     lazy var preloader:TablePreloader = TablePreloader()
     public init(sections:[SectionConvertable],
                 delegate:TableDelegate = TableDelegate(),
@@ -47,7 +48,7 @@ public class TableManager{
         tableView.delegate = self.delegate
         tableView.dataSource = self.delegate
         //Preload Sections
-        DispatchQueue.global(qos: .userInteractive).async {
+        queue.async {
             self.dispatcher.reset()
             self.sections.forEach { (section) in
                 if let _section = section as? PreloadableSection{

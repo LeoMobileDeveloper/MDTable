@@ -12,7 +12,7 @@ import ObjectiveC
 struct MDTableConst{
     static let associatedKey = UnsafeRawPointer.init(bitPattern: "MDTableAccessoryKey".hashValue)
 }
-public extension UITableView{
+public extension UITableView{    
     var manager:TableManager?{
         get{
             return objc_getAssociatedObject(self,MDTableConst.associatedKey) as? TableManager
